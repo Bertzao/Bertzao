@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocinha Cousins — The REAL Rocinha Experience</title>
+<meta name="description" id="metaDesc" content="100% safe, private favela experiences in Rio de Janeiro, guided by two cousins born and raised in Rocinha.">
+
+<!-- ▸ QUANDO TIVEREM O DOMÍNIO PRÓPRIO: descomente as 2 linhas abaixo e
+     troque pelo endereço real. Enquanto o site estiver num endereço
+     provisório (.netlify.app / .pages.dev), deixe comentado — apontar o
+     canonical pra um domínio que não existe atrapalha a indexação. -->
+<!-- <link rel="canonical" href="https://rocinhacousins.com/"> -->
+
+<!-- Prévia do link quando alguém compartilha no WhatsApp / Instagram / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rocinha Cousins — The REAL Rocinha Experience">
+<meta property="og:description" content="100% safe, private favela experiences in Rio de Janeiro, guided by two cousins born and raised in Rocinha.">
+<!-- <meta property="og:url" content="https://rocinhacousins.com/"> -->
+<!-- Foto de compartilhamento (1200×630) — o share.jpg vai na mesma pasta do index.html -->
+<meta property="og:image" content="share.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0E0E10">
+
+<!-- A foto do hero é a maior imagem da primeira tela; avisar o navegador cedo
+     faz ela começar a baixar junto com o CSS, em vez de esperar a página montar. -->
+<link rel="preload" as="image" href="fotos/01.webp" fetchpriority="high">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0E10'/%3E%3Cpath d='M4 24l6-13 7 6 5-9 6 16z' fill='%2300A859'/%3E%3Ccircle cx='23' cy='8' r='3' fill='%23FFCB00'/%3E%3C/svg%3E">
+
+<!-- ═══════════════════════════════════════════════════════════
+     ROCINHA COUSINS — landing page
+
+     COMO TROCAR UMA FOTO
+     As fotos ficam na pasta "fotos", numeradas na mesma ordem em
+     que aparecem na página: 01 é o hero, 02 a 12 são os carrosséis
+     das três experiências, 13 são os primos, 14 em diante é a
+     galeria. Para trocar qualquer uma, basta salvar a nova imagem
+     por cima do arquivo correspondente, mantendo o nome.
+
+     Se preferir usar outro nome de arquivo, procure na página pelo
+     texto do alt da foto e troque o caminho dentro do src.
+
+     ATENÇÃO: nunca escreva a sequência de fechamento de comentário
+     dentro de um comentário — ela encerra o bloco na hora e o resto
+     do texto passa a aparecer na tela como conteúdo da página.
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- Marca que o JavaScript está ativo. As animações de entrada só ligam a
+     partir desta classe, para que a página continue legível sem script. -->
+<script>document.documentElement.className+=' js';</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0E0E10;
+  --ink-2:#161619;
+  --ink-3:#1E1E23;
+  --paper:#F5F3EF;
+  --mute:#8E8E98;
+  --green:#00A859;
+  --yellow:#FFCB00;
+  --line:rgba(245,243,239,.12);
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Karla',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,64px);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);color:var(--paper);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:2px}
+
+/* ── type ─────────────────────────────────────── */
+h1,h2,h3{font-family:var(--display);line-height:.92;letter-spacing:-.02em;text-transform:uppercase}
+h2{font-variation-settings:'wdth' 112,'wght' 800;font-size:clamp(36px,7.5vw,76px)}
+h3{font-variation-settings:'wdth' 105,'wght' 800;font-size:clamp(28px,5vw,46px)}
+p{max-width:68ch}
+.lede{font-size:clamp(17px,2vw,20px);color:#CFCDCA}
+
+/* ── topbar ───────────────────────────────────── */
+.topbar{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px var(--pad);
+  background:linear-gradient(to bottom,rgba(14,14,16,.92),rgba(14,14,16,0));
+  backdrop-filter:blur(2px);transition:background .35s ease,backdrop-filter .35s;
+}
+.topbar.solid{background:rgba(14,14,16,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{
+  font-family:var(--display);font-variation-settings:'wdth' 95,'wght' 800;
+  font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1;
+}
+.brand span{color:var(--green)}
+
+.navlinks{display:none}
+@media(min-width:1080px){
+  .navlinks{display:flex;gap:30px;margin-right:auto;margin-left:52px}
+  .navlinks a{
+    font-family:var(--display);font-variation-settings:'wdth' 88,'wght' 600;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);
+    padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+  }
+  .navlinks a:hover{color:var(--paper);border-color:var(--green)}
+}
+
+.langs{display:flex;gap:2px;background:rgba(245,243,239,.07);border-radius:999px;padding:3px}
+.langs button{
+  font-family:var(--display);font-variation-settings:'wdth' 85,'wght' 700;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mute);background:none;border:0;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:0 14px;border-radius:999px;
+  transition:color .2s,background .2s;
+}
+.langs button:hover{color:var(--paper)}
+.langs button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+
+/* ── buttons ──────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-variation-settings:'wdth' 95,'wght' 700;
+  font-size:14px;letter-spacing:.08em;text-transform:uppercase;
+  padding:16px 26px;border-radius:999px;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-solid{background:var(--green);color:#04240F;box-shadow:0 0 0 0 rgba(0,168,89,.45)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(0,168,89,.7)}
+.btn-ghost{border:1px solid var(--line);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-yellow{background:var(--yellow);color:#2B2100}
+.btn-yellow:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(255,203,0,.6)}
+
+/* ── hero ─────────────────────────────────────── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:0 var(--pad) clamp(32px,7vh,72px)}
+.hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(190deg,rgba(14,14,16,.55) 0%,rgba(14,14,16,.25) 35%,rgba(14,14,16,.92) 82%,var(--ink) 100%);
+}
+.hero-inner{width:100%;max-width:1240px;margin:0 auto}
+.hero h1{
+  font-variation-settings:'wdth' 100,'wght' 900;
+  font-size:clamp(34px,10.5vw,160px);
+  overflow-wrap:break-word;
+}
+@media(min-width:700px){
+  .hero h1{font-variation-settings:'wdth' 118,'wght' 900;font-size:clamp(56px,11vw,168px)}
+}
+.hero h1 em{font-style:normal;color:var(--yellow);display:inline-block}
+.hero .lede{margin:22px 0 30px;max-width:44ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;margin-top:26px;
+  font-size:13px;color:var(--mute);letter-spacing:.02em;
+}
+.badge b{color:var(--paper);font-weight:500}
+
+/* ── ticker ───────────────────────────────────── */
+.ticker{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--ink-2);overflow:hidden;padding:18px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.ticker-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.ticker-group{display:flex;align-items:center;flex:none}
+.ticker-item{
+  display:flex;align-items:center;gap:11px;padding:0 30px;flex:none;
+  font-family:var(--display);font-variation-settings:'wdth' 92,'wght' 600;
+  font-size:14px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+}
+.ticker-item svg{width:19px;height:19px;color:var(--green);flex:none}
+.ticker-item:nth-child(even) svg{color:var(--yellow)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* on desktop there's room for all four at once — no need to keep them moving forever */
+@media(min-width:760px){
+  .ticker{-webkit-mask-image:none;mask-image:none}
+  .ticker-track{animation:none;width:100%}
+  .ticker-group{width:100%;justify-content:space-between}
+  .ticker-group + .ticker-group{display:none}
+}
+
+/* ── sections ─────────────────────────────────── */
+section{padding:clamp(72px,12vw,150px) var(--pad)}
+section,footer{scroll-margin-top:80px}
+.wrap{max-width:1240px;margin:0 auto}
+.head{max-width:760px;margin-bottom:clamp(40px,6vw,72px)}
+.head h2{margin-top:14px}
+.head p{margin-top:20px}
+
+/* ── experiences ──────────────────────────────── */
+.exp{display:grid;gap:clamp(28px,4vw,56px);margin-bottom:clamp(64px,9vw,120px)}
+.exp:last-child{margin-bottom:0}
+.exp-body{align-self:center;max-width:560px}
+.exp-tag{
+  font-family:var(--display);font-variation-settings:'wdth' 85,'wght' 600;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);
+  display:block;margin-bottom:14px;
+}
+.exp-body h3{margin-bottom:18px}
+.exp-body p{color:#C6C4C1;margin-bottom:26px}
+.exp .ph{aspect-ratio:4/5}
+@media(min-width:900px){
+  .exp{grid-template-columns:1.05fr .95fr;align-items:center}
+  .exp:nth-child(even) .exp-media{order:2}
+  .exp .ph{aspect-ratio:3/4}
+}
+
+/* ── carousel (experience photos) ────────────────── */
+.carousel{position:relative;width:100%;height:100%}
+.carousel-track{
+  display:flex;width:100%;height:100%;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{flex:0 0 100%;height:100%;scroll-snap-align:start}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.car-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(14,14,16,.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(245,243,239,.25);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .2s,border-color .2s;z-index:2;padding:0;
+}
+.car-btn svg{width:16px;height:16px}
+.car-btn:hover{background:rgba(14,14,16,.8);border-color:var(--yellow)}
+.car-prev{left:12px}
+.car-next{right:12px}
+.car-dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:7px;z-index:2}
+.car-dot{width:7px;height:7px;border-radius:50%;background:rgba(245,243,239,.4);border:0;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.car-dot.active{background:var(--yellow);transform:scale(1.25)}
+.carousel.single .car-btn,.carousel.single .car-dots{display:none}
+
+/* ── photo placeholders ───────────────────────── */
+.ph{
+  position:relative;width:100%;border-radius:6px;overflow:hidden;
+  background:
+    repeating-linear-gradient(135deg,rgba(245,243,239,.035) 0 2px,transparent 2px 11px),
+    linear-gradient(160deg,#24242A,#141418);
+  border:1px dashed rgba(245,243,239,.2);
+  display:grid;place-items:center;padding:24px;
+}
+.ph span{
+  font-family:var(--display);font-variation-settings:'wdth' 85,'wght' 600;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:#9C9AA4;text-align:center;line-height:1.7;max-width:26ch;
+}
+/* .ph é um grid com place-items:center para centralizar o texto do placeholder.
+   Quando tem foto de verdade não há texto, e o grid atrapalha: a linha é de
+   altura automática, então o height:100% da imagem fica circular e não resolve
+   — a foto era desenhada na altura natural dela (1920px num hero de 900px) e só
+   o overflow:hidden escondia o resto. Resultado: o object-fit nunca valeu e o
+   corte pegava sempre o topo da imagem, ou seja, o céu. Em bloco, a altura
+   passa a ser definida e o object-fit/object-position funcionam. */
+.ph.filled{border:0;padding:0;background:#141418;display:block}
+.ph.filled img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  /* As fotos são verticais e o assunto (gente, casas, becos) fica na parte
+     de baixo do quadro. Centralizar o recorte cortava justamente isso e
+     deixava céu na tela, então o corte é puxado para baixo. */
+  object-position:center 62%;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.ph.filled:hover img{transform:scale(1.045)}
+@media(prefers-reduced-motion:reduce){.ph.filled:hover img{transform:none}}
+.ph span b{display:block;color:var(--yellow);font-weight:inherit;margin-bottom:6px;letter-spacing:.2em}
+.ph-hero{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0;align-items:center}
+/* No desktop a foto do hero é bem mais alta que a área visível: sem isto o
+   recorte mostrava só céu e a encosta de pedra, e a favela — que é o assunto
+   da página — ficava inteiramente fora da primeira tela. A classe .filled
+   entra no seletor porque .ph.filled img acima tem a mesma força; sem ela
+   esta regra perde e o ajuste não vale de nada. */
+.ph-hero.filled img{object-position:center 70%}
+
+/* ── cousins ──────────────────────────────────── */
+.cousins{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cousins-grid{display:grid;gap:clamp(32px,5vw,64px)}
+.cousins .ph{aspect-ratio:1/1}
+.cousins-text h2{margin:14px 0 22px}
+.cousins-text p{color:#C6C4C1;margin-bottom:18px}
+.note{
+  background:rgba(0,168,89,.1);border-radius:8px;
+  padding:16px 20px;font-size:16px;
+}
+.cousins-text .note{color:var(--paper)}
+.note b{color:var(--green);font-weight:700}
+@media(min-width:900px){.cousins-grid{grid-template-columns:.9fr 1.1fr;align-items:center}}
+
+/* ── gallery ──────────────────────────────────── */
+.grid-gal{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+.grid-gal .ph{aspect-ratio:1/1}
+.grid-gal .ph:first-child{grid-column:span 2;aspect-ratio:16/10}
+@media(min-width:760px){
+  .grid-gal{grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid-gal .ph:first-child{grid-column:auto;grid-row:span 2;aspect-ratio:1/2.06}
+  .grid-gal .ph:nth-child(5){grid-row:span 2;aspect-ratio:1/2.06}
+}
+
+/* ── reviews ──────────────────────────────────── */
+.reviews{background:var(--ink-2);border-top:1px solid var(--line)}
+.proof{max-width:600px;margin:0 auto;text-align:center}
+.proof .lede{margin:20px auto 32px}
+
+/* ── what's included ─────────────────────────── */
+.inc-list{list-style:none;display:grid;gap:2px;border-top:1px solid var(--line)}
+.inc-list li{padding:28px 0;border-bottom:1px solid var(--line)}
+.inc-list h3{
+  font-variation-settings:'wdth' 100,'wght' 750;
+  font-size:clamp(19px,2.5vw,25px);margin-bottom:10px;letter-spacing:-.01em;
+}
+.inc-list p{color:#C6C4C1;font-size:16.5px;max-width:60ch}
+@media(min-width:900px){
+  .inc-list{grid-template-columns:1fr 1fr;column-gap:56px}
+  .inc-list li{padding:30px 0}
+}
+/* markup for real quotes lives commented-out in the HTML — styles stay ready to go */
+.rev-grid{display:grid;gap:16px;margin-top:56px}
+@media(min-width:800px){.rev-grid{grid-template-columns:repeat(3,1fr)}}
+.rev{background:var(--ink-3);border:1px solid var(--line);border-radius:8px;padding:28px}
+.stars{color:var(--yellow);letter-spacing:3px;font-size:15px;margin-bottom:16px}
+.rev p{font-size:16px;color:#C6C4C1;min-height:110px}
+.rev cite{
+  display:block;margin-top:18px;font-style:normal;font-size:13px;color:var(--mute);
+  font-family:var(--display);font-variation-settings:'wdth' 88,'wght' 600;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* ── faq ──────────────────────────────────────── */
+.faq-list{max-width:840px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{
+  list-style:none;cursor:pointer;padding:26px 44px 26px 0;position:relative;
+  font-family:var(--display);font-variation-settings:'wdth' 100,'wght' 700;
+  font-size:clamp(18px,2.6vw,24px);text-transform:uppercase;letter-spacing:-.01em;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:'';position:absolute;right:6px;top:50%;width:14px;height:2px;
+  background:var(--green);transform:translateY(-50%);transition:transform .25s;
+}
+summary::before{
+  content:'';position:absolute;right:12px;top:50%;width:2px;height:14px;
+  background:var(--green);transform:translateY(-50%);transition:transform .25s,opacity .25s;
+}
+details[open] summary::before{transform:translateY(-50%) rotate(90deg);opacity:0}
+details p{padding:0 0 28px;color:#C6C4C1}
+
+/* ── footer ───────────────────────────────────── */
+.foot{
+  text-align:center;background:
+    radial-gradient(80% 120% at 50% 0%,rgba(0,168,89,.16),transparent 62%),var(--ink);
+  border-top:1px solid var(--line);
+}
+.foot h2{font-size:clamp(40px,9vw,104px);font-variation-settings:'wdth' 118,'wght' 900}
+.foot .btn{margin-top:34px}
+.socials{display:flex;justify-content:center;gap:14px;margin-top:28px}
+.socials a{
+  width:50px;height:50px;border-radius:50%;border:1px solid var(--line);
+  display:grid;place-items:center;transition:border-color .2s,color .2s,transform .2s;
+}
+.socials a:hover{border-color:var(--green);color:var(--green);transform:translateY(-3px)}
+.socials svg{width:21px;height:21px}
+.meet{margin-top:40px;font-size:14px;color:var(--mute)}
+.legal{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);letter-spacing:.04em}
+
+/* ── sticky mobile CTA ────────────────────────── */
+.dock{
+  position:fixed;z-index:55;left:var(--pad);right:var(--pad);bottom:16px;
+  display:flex;gap:10px;
+  transform:translateY(140%);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.dock.show{transform:none}
+.dock .btn{flex:1;justify-content:center;padding:15px 14px;font-size:12.5px;box-shadow:0 14px 34px -12px rgba(0,0,0,.9)}
+@media(max-width:759px){.foot{padding-bottom:130px}}
+@media(min-width:760px){
+  .dock{left:auto;right:26px;bottom:26px;flex-direction:column;align-items:flex-end}
+  .dock .btn{flex:none}
+}
+
+/* ── reveal ───────────────────────────────────── */
+/* Tudo aqui depende da classe .js, que o próprio navegador põe no <html> logo
+   no início do <head>. Se o script não rodar — conexão ruim, navegador interno
+   do Instagram engasgando, bloqueador — nada fica escondido: o conteúdo
+   simplesmente aparece, sem animação. Antes a página inteira ficava invisível. */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* the photo mosaic gets its own staggered per-photo entrance instead of fading in as one block */
+.js .grid-gal.rv{opacity:1;transform:none;transition:none}
+.js .grid-gal .ph{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--i,0) * 45ms);
+}
+.js .grid-gal.in .ph{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .rv,.js .grid-gal .ph{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<!-- Dados estruturados: ajudam o Google a mostrar as perguntas e a nota nos resultados de busca -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"TouristInformationCenter",
+  "name":"Rocinha Cousins",
+  "description":"Private, 100% safe favela experiences in Rio de Janeiro guided by two cousins born and raised in Rocinha.",
+  "url":"https://rocinhacousins.com/",
+  "telephone":"+55-21-97879-1943",
+  "areaServed":"Rio de Janeiro, Brazil",
+  "address":{"@type":"PostalAddress","addressLocality":"Rio de Janeiro","addressRegion":"RJ","addressCountry":"BR"},
+  "availableLanguage":["English","Spanish","French","Portuguese"],
+  "sameAs":[
+    "https://instagram.com/rocinhacousins",
+    "https://www.tripadvisor.com/Attraction_Review-g303506-d34521635-Reviews-Rocinha_Tour_with_Local_cousins-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Is it safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. We live in Rocinha and we know every corner and every person on the way. You walk with locals who are respected here, we go only where and when it's calm, and we stay with you the whole time."}},
+    {"@type":"Question","name":"How do I book?","acceptedAnswer":{"@type":"Answer","text":"Message us on Instagram or WhatsApp. Tell us which experience you want, your dates and how many people, and we confirm your spot in the same conversation."}},
+    {"@type":"Question","name":"Where do we meet?","acceptedAnswer":{"@type":"Answer","text":"At Sao Conrado metro station, Exit A, right next to the Rocinha street market."}},
+    {"@type":"Question","name":"Which languages do you speak?","acceptedAnswer":{"@type":"Answer","text":"English, Spanish and Portuguese, and we get by in French."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ══════════ TOP BAR ══════════ -->
+<header class="topbar" id="topbar">
+  <a href="#top" class="brand">Rocinha<br><span>Cousins</span></a>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="#experiences" data-i="nav.exp">Experiences</a>
+    <a href="#cousins" data-i="nav.cz">The cousins</a>
+    <a href="#included" data-i="nav.inc">Included</a>
+    <a href="#faq" data-i="nav.faq">FAQ</a>
+  </nav>
+  <nav class="langs" aria-label="Language">
+    <button data-lang="en" aria-pressed="true">EN</button>
+    <button data-lang="es" aria-pressed="false">ES</button>
+    <button data-lang="fr" aria-pressed="false">FR</button>
+    <button data-lang="pt" aria-pressed="false">PT</button>
+  </nav>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <!-- FOTO 01 — vista da Rocinha com o Morro Dois Irmãos ao fundo (horizontal, bem larga) -->
+    <div class="ph ph-hero filled"><img src="fotos/01.webp" alt="Aerial view of Rocinha favela against the mountain, with the ocean in the distance" loading="eager" fetchpriority="high"></div>
+  </div>
+  <div class="hero-inner">
+    <h1><span data-i="hero.a">The</span> <em data-i="hero.b">REAL</em><br><span data-i="hero.c">Rocinha Experience</span></h1>
+    <p class="lede" data-i="hero.sub">100% safe, private experiences by two local cousins — born and raised in Rio's largest favela.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <span data-i="cta.ig">Message us on Instagram</span>
+      </a>
+      <a class="btn btn-ghost" href="#experiences" data-i="cta.see">See the experiences</a>
+    </div>
+    <p class="badge">🇧🇷 <b data-i="hero.badge">English · Español · Português spoken</b></p>
+  </div>
+</section>
+
+<!-- ══════════ TRUST TICKER ══════════ -->
+<div class="ticker" aria-label="Why travellers choose us">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-group">
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l4-9 5 4 4-7 5 12z"/></svg><span data-i="trust.1">Born &amp; raised local guides</span></span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.4 8.2-8 9-4.6-.8-8-4-8-9V6z"/></svg><span data-i="trust.2">100% private &amp; safe</span></span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span data-i="trust.3">No jeep safaris</span></span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.6-7 9-7 9z"/></svg><span data-i="trust.4">Supports a local social project</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ EXPERIENCES ══════════ -->
+<section id="experiences">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 data-i="exp.title">Choose your experience</h2>
+      <p class="lede" data-i="exp.sub">Small, private and led by us — never a van full of strangers. Tell us which one you want and we'll sort out the rest by message.</p>
+    </div>
+
+    <!-- Experiência 1 -->
+    <article class="exp rv">
+      <div class="exp-media">
+        <!-- carrossel: capoeira / Rua 1 / laje -->
+        <div class="carousel ph filled" data-carousel><div class="carousel-track"><div class="carousel-slide"><img src="fotos/02.webp" alt="Live capoeira performance at the Acorda Capoeira social project, Rocinha" loading="lazy"></div><div class="carousel-slide"><img src="fotos/03.webp" alt="The vibrant street market alleyways of Rua 1 in Rocinha" loading="lazy"></div><div class="carousel-slide"><img src="fotos/04.webp" alt="Group of tourists relaxing on a rooftop bar overlooking the favela after the tour" loading="lazy"></div></div><button class="car-btn car-prev" aria-label="Previous photo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button><button class="car-btn car-next" aria-label="Next photo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button><div class="car-dots"></div></div>
+      </div>
+      <div class="exp-body">
+        <span class="exp-tag" data-i="e1.tag">Morning or afternoon · 2 to 3½ hours</span>
+        <h3 data-i="e1.title">Private Rocinha &amp; Vidigal Tour</h3>
+        <p data-i="e1.body">A private, immersive walk through the largest favela in Latin America with two local cousins. A moto-taxi ride up to the Laboriaux viewpoint, with breathtaking views of Sugarloaf, the ocean and Rio's South Zone. A live capoeira show at the Acorda Capoeira social project, where Mestre Manel has been teaching the neighbourhood's kids for over twenty years. Then the vibrant alleyways of Rua 1, and a relaxed local rooftop to soak it all in. Real culture, real people, real Rio.</p>
+        <a class="btn btn-solid" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
+      </div>
+    </article>
+
+    <!-- Experiência 2 -->
+    <article class="exp rv">
+      <div class="exp-media">
+        <!-- carrossel: baile funk, 4 fotos -->
+        <div class="carousel ph filled" data-carousel><div class="carousel-track"><div class="carousel-slide"><img src="fotos/05.webp" alt="Crowd dancing at an authentic baile funk party at night" loading="lazy"></div><div class="carousel-slide"><img src="fotos/06.webp" alt="Crowd with hands raised dancing at a baile funk party" loading="lazy"></div><div class="carousel-slide"><img src="fotos/07.webp" alt="Traveller dancing and smiling at a baile funk party at night" loading="lazy"></div><div class="carousel-slide"><img src="fotos/08.webp" alt="A big group of friends posing together at the baile funk party" loading="lazy"></div></div><button class="car-btn car-prev" aria-label="Previous photo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button><button class="car-btn car-next" aria-label="Next photo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button><div class="car-dots"></div></div>
+      </div>
+      <div class="exp-body">
+        <span class="exp-tag" data-i="e2.tag">After dark · All night with us</span>
+        <h3 data-i="e2.title">Favela Party — Baile Funk</h3>
+        <p data-i="e2.body">Experience Rio's real nightlife from the inside. We safely take you into an authentic baile funk in Rocinha or Vidigal — the party locals actually go to. Dance, feel the energy and live the culture with trusted local guides by your side all night.</p>
+        <a class="btn btn-solid" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
+      </div>
+    </article>
+
+    <!-- Experiência 3 -->
+    <article class="exp rv">
+      <div class="exp-media">
+        <!-- carrossel: mirante / amigos / bandeira -->
+        <div class="carousel ph filled" data-carousel><div class="carousel-track"><div class="carousel-slide"><img src="fotos/09.webp" alt="Group at a mountaintop viewpoint overlooking Rio de Janeiro" loading="lazy"></div><div class="carousel-slide"><img src="fotos/10.webp" alt="A hiker looking out over the Rocinha favela from a mountaintop viewpoint at sunrise" loading="lazy"></div><div class="carousel-slide"><img src="fotos/11.webp" alt="Panoramic dusk view of Copacabana beach, the lagoon and Rio de Janeiro from a mountaintop" loading="lazy"></div><div class="carousel-slide"><img src="fotos/12.webp" alt="A polaroid of the hiking group held up against the sunrise view over Rio de Janeiro" loading="lazy"></div></div><button class="car-btn car-prev" aria-label="Previous photo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button><button class="car-btn car-next" aria-label="Next photo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button><div class="car-dots"></div></div>
+      </div>
+      <div class="exp-body">
+        <span class="exp-tag" data-i="e3.tag">Best at sunset · About 3 hours</span>
+        <h3 data-i="e3.title">Two Brothers (Dois Irmãos) Hike</h3>
+        <p data-i="e3.body">Hike up the iconic Dois Irmãos mountain from Vidigal for the most breathtaking panoramic view in all of Rio — Ipanema, Leblon, the ocean and the favela below. Guided every step by a local cousin. Unforgettable at sunset.</p>
+        <a class="btn btn-solid" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ COUSINS ══════════ -->
+<section class="cousins" id="cousins">
+  <div class="wrap cousins-grid">
+    <div class="rv">
+      <!-- FOTO 05 — os dois primos juntos, na laje ou no beco (quadrada) -->
+      <div class="ph filled"><img src="fotos/13.webp" alt="The two Rocinha Cousins guides on a rooftop overlooking the favela and Dois Irmãos mountain" loading="lazy"></div>
+    </div>
+    <div class="cousins-text rv">
+      <h2 data-i="cz.title">Two cousins.<br>One favela.<br>Your Rio.</h2>
+      <p data-i="cz.p1">We were born here, we grew up here, and we still live here. Rocinha isn't a stop on our route — it's home, and everyone in the alleyways knows us by name.</p>
+      <p data-i="cz.p2">That's why we only take one group at a time. No vans, no headsets, no crowd of thirty people photographing rooftops from a jeep. Just you and us, walking at your pace, stopping where you want, eating where we eat, meeting the people we grew up with.</p>
+      <p class="note" data-i="cz.note"><b>Part of every experience goes to Acorda Capoeira</b>, the social project that teaches capoeira to kids in Rocinha. Coming with us puts money straight into the community you're visiting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GALLERY ══════════ -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 data-i="gal.title">Real people, real days</h2>
+    </div>
+    <div class="grid-gal rv">
+      <!-- FOTOS 06 a 12 — galeria. As fotos 06 e 10 aparecem grandes: escolha as duas melhores -->
+      <div class="ph filled"><img src="fotos/14.webp" alt="View of Rocinha favela with Pedra da Gavea mountain and a Brazilian flag" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/04.webp" alt="Group of tourists relaxing on a rooftop bar overlooking the favela after the tour" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/15.webp" alt="Street football game on a community pitch in Rocinha" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/03.webp" alt="The vibrant street market alleyways of Rua 1 in Rocinha" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/16.webp" alt="A polaroid photo held up against a sunset view of Rio de Janeiro" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/17.webp" alt="Four friends with their local guide at a mountaintop viewpoint" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/18.webp" alt="Kids playing basketball on a community sports court in Rocinha" loading="lazy"></div>
+
+      <div class="ph filled"><img src="fotos/19.webp" alt="Group of travellers with their guide at a Rio de Janeiro viewpoint, giving a thumbs up" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/20.webp" alt="Guides and a traveller holding up a Brazil football jersey at a viewpoint decorated with flags" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/21.webp" alt="A larger group of six travellers and their guide posing at a Rocinha viewpoint" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/22.webp" alt="Travellers browsing football jerseys at a street market stall" loading="lazy"></div>
+      <div class="ph filled"><img src="fotos/23.webp" alt="A large Brazilian flag waving against the Pedra da Gavea rock face above Rocinha" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT'S INCLUDED ══════════ -->
+<section class="reviews" id="included">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 data-i="inc.title">What you actually get</h2>
+      <p class="lede" data-i="inc.sub">No small print, no surprise add-ons at the meeting point. This is what every booking includes.</p>
+    </div>
+
+    <ul class="inc-list rv">
+      <li>
+        <h3 data-i="inc.1t">Your group only — 6 to 8 people, never more</h3>
+        <p data-i="inc.1d">Book for two and it's the two of you. Book for six and it's your six. We never merge bookings to fill a slot, which is the whole reason we don't run vans.</p>
+      </li>
+      <li>
+        <h3 data-i="inc.2t">One of us with you the whole time</h3>
+        <p data-i="inc.2d">No handoff to a driver, no meeting a stranger halfway. The cousin who answers your message is the cousin who walks with you.</p>
+      </li>
+      <li>
+        <h3 data-i="inc.3t">The moto-taxi rides are part of it</h3>
+        <p data-i="inc.3d">Getting up the hill is half the fun and it's already included — you're not paying extra at the bottom of the road.</p>
+      </li>
+      <li>
+        <h3 data-i="inc.4t">Registered with Favela Turismo</h3>
+        <p data-i="inc.4d">Every tour we run is logged in the Favela Turismo app, the official register for tourism inside the community.</p>
+      </li>
+    </ul>
+
+    <!--
+      ═══ QUANDO TIVEREM AVALIAÇÕES NO TRIPADVISOR ═══
+      Hoje o perfil do TripAdvisor existe mas ainda não tem avaliação nenhuma.
+      Por isso NÃO existe botão pra lá nesta página: mandar o turista pra uma
+      página vazia derruba a confiança em vez de aumentar.
+
+      Assim que a primeira avaliação real aparecer, descomente o bloco abaixo.
+      Ele coloca de volta o botão do TripAdvisor + os 3 cards de depoimento.
+      Cole o texto real de cada avaliação em rev.1 / rev.2 / rev.3 (e nome +
+      país em rev.1n / rev.2n / rev.3n) nas 4 traduções, lá no objeto T do
+      bloco de script. O CSS de .rev-grid, .rev e .proof já está pronto.
+
+    <div class="proof rv" style="margin-top:64px">
+      <h2 data-i="rev.title">Straight from our guests</h2>
+      <p class="lede" data-i="rev.sub">Every review comes from a traveller who actually took the tour — read them straight from TripAdvisor, no edits.</p>
+      <a class="btn btn-yellow" href="https://www.tripadvisor.com/Attraction_Review-g303506-d34521635-Reviews-Rocinha_Tour_with_Local_cousins-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.7z"/></svg>
+        <span data-i="rev.ta">See our reviews on TripAdvisor</span>
+      </a>
+    </div>
+
+    <div class="rev-grid rv">
+      <blockquote class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p data-i="rev.1">[ Cole aqui a avaliação do cliente — 2 a 4 linhas ]</p>
+        <cite data-i="rev.1n">Name · Country</cite>
+      </blockquote>
+      <blockquote class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p data-i="rev.2">[ Cole aqui a avaliação do cliente — 2 a 4 linhas ]</p>
+        <cite data-i="rev.2n">Name · Country</cite>
+      </blockquote>
+      <blockquote class="rev">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <p data-i="rev.3">[ Cole aqui a avaliação do cliente — 2 a 4 linhas ]</p>
+        <cite data-i="rev.3n">Name · Country</cite>
+      </blockquote>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head rv">
+      <h2 data-i="faq.title">Questions</h2>
+    </div>
+    <div class="faq-list rv">
+      <details>
+        <summary data-i="faq.q1">Is it safe?</summary>
+        <p data-i="faq.a1">Yes. We live in Rocinha and we know every corner and every person on the way. You walk with locals who are respected here, we go only where and when it's calm, and we stay with you the whole time. Thousands of travellers have done this with us without a single problem.</p>
+      </details>
+      <details>
+        <summary data-i="faq.q2">How do I book?</summary>
+        <p data-i="faq.a2">Message us on Instagram or WhatsApp. Tell us which experience you want, your dates and how many people. We'll answer with everything you need to know and confirm your spot in the same conversation.</p>
+      </details>
+      <details>
+        <summary data-i="faq.q3">Where do we meet?</summary>
+        <p data-i="faq.a3">At São Conrado metro station, Exit A, right next to the Rocinha street market. It's easy to reach from Copacabana, Ipanema and Leblon, and we'll send you the exact pin when you book.</p>
+      </details>
+      <details>
+        <summary data-i="faq.q4">Which languages do you speak?</summary>
+        <p data-i="faq.a4">English, Spanish and Portuguese — we grew up switching between the three. This page is also translated into French so you can read it comfortably, but the tour itself is guided in English, Spanish or Portuguese. Write to us in whichever of those three works best for you.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <h2 data-i="ft.title">Come see<br>the real Rio 🇧🇷</h2>
+    <a class="btn btn-yellow" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      <span data-i="ft.cta">Message us on Instagram @rocinhacousins</span>
+    </a>
+    <div class="socials">
+      <a href="https://instagram.com/rocinhacousins" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/5521978791943" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2z"/></svg>
+      </a>
+    </div>
+    <p class="meet" data-i="ft.meet">We meet at São Conrado metro station, Exit A · Rio de Janeiro</p>
+    <p class="legal" data-i="ft.legal">Rocinha Cousins · Local guides born and raised in Rocinha · Proudly supporting Acorda Capoeira</p>
+  </div>
+</footer>
+
+<!-- ══════════ STICKY CONTACT ══════════ -->
+<div class="dock" id="dock">
+  <a class="btn btn-solid" href="https://wa.me/5521978791943" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2z"/></svg>
+    <span data-i="dock.wa">WhatsApp</span>
+  </a>
+  <a class="btn btn-yellow" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+    <span data-i="dock.ig">Instagram</span>
+  </a>
+</div>
+
+<script>
+/* ═══════════ TRANSLATIONS ═══════════ */
+const T = {
+  en:{
+    "hero.a":"The","hero.b":"REAL","hero.c":"Rocinha Experience",
+    "hero.sub":"100% safe, private experiences by two local cousins — born and raised in Rio's largest favela.",
+    "hero.badge":"English · Español · Português spoken",
+    "cta.ig":"Message us on Instagram","cta.see":"See the experiences","cta.book":"Message us to book",
+    "trust.1":"Born & raised local guides","trust.2":"100% private & safe","trust.3":"No jeep safaris","trust.4":"Supports a local social project",
+    "exp.title":"Choose your experience",
+    "exp.sub":"Small, private and led by us — never a van full of strangers. Tell us which one you want and we'll sort out the rest by message.",
+    "e1.tag":"Morning or afternoon · 2 to 3½ hours","e1.title":"Private Rocinha & Vidigal Tour",
+    "e1.body":"A private, immersive walk through the largest favela in Latin America with two local cousins. A moto-taxi ride up to the Laboriaux viewpoint, with breathtaking views of Sugarloaf, the ocean and Rio's South Zone. A live capoeira show at the Acorda Capoeira social project, the vibrant alleyways of Rua 1, and a relaxed local rooftop to soak it all in. Real culture, real people, real Rio.",
+    "e2.tag":"After dark · All night with us","e2.title":"Favela Party — Baile Funk",
+    "e2.body":"Experience Rio's real nightlife from the inside. We safely take you into an authentic baile funk in Rocinha or Vidigal — the party locals actually go to. Dance, feel the energy and live the culture with trusted local guides by your side all night.",
+    "e3.tag":"Best at sunset · About 3 hours","e3.title":"Two Brothers (Dois Irmãos) Hike",
+    "e3.body":"Hike up the iconic Dois Irmãos mountain from Vidigal for the most breathtaking panoramic view in all of Rio — Ipanema, Leblon, the ocean and the favela below. Guided every step by a local cousin. Unforgettable at sunset.",
+    "cz.title":"Two cousins.<br>One favela.<br>Your Rio.",
+    "cz.p1":"We were born here, we grew up here, and we still live here. Rocinha isn't a stop on our route — it's home, and everyone in the alleyways knows us by name.",
+    "cz.p2":"That's why we only take one group at a time. No vans, no headsets, no crowd of thirty people photographing rooftops from a jeep. Just you and us, walking at your pace, stopping where you want, eating where we eat, meeting the people we grew up with.",
+    "cz.note":"<b>Part of every experience goes to Acorda Capoeira</b>, the social project that teaches capoeira to kids in Rocinha. Coming with us puts money straight into the community you're visiting.",
+    "gal.title":"Real people, real days",
+    "rev.title":"Straight from our guests","rev.sub":"Every review comes from a traveller who actually took the tour — read them straight from TripAdvisor, no edits.",
+    "rev.1":"[ Paste a guest review here — 2 to 4 lines ]","rev.1n":"Name · Country",
+    "rev.2":"[ Paste a guest review here — 2 to 4 lines ]","rev.2n":"Name · Country",
+    "rev.3":"[ Paste a guest review here — 2 to 4 lines ]","rev.3n":"Name · Country",
+    "rev.ta":"See our reviews on TripAdvisor",
+    "inc.title":"What you actually get","inc.sub":"No small print, no surprise add-ons at the meeting point. This is what every booking includes.",
+    "inc.1t":"Your group only — 6 to 8 people, never more","inc.1d":"Book for two and it's the two of you. Book for six and it's your six. We never merge bookings to fill a slot, which is the whole reason we don't run vans.",
+    "inc.2t":"One of us with you the whole time","inc.2d":"No handoff to a driver, no meeting a stranger halfway. The cousin who answers your message is the cousin who walks with you.",
+    "inc.3t":"The moto-taxi rides are part of it","inc.3d":"Getting up the hill is half the fun and it's already included — you're not paying extra at the bottom of the road.",
+    "inc.4t":"Registered with Favela Turismo","inc.4d":"Every tour we run is logged in the Favela Turismo app, the official register for tourism inside the community.",
+    "faq.title":"Questions",
+    "faq.q1":"Is it safe?",
+    "faq.a1":"Yes. We live in Rocinha and we know every corner and every person on the way. You walk with locals who are respected here, we go only where and when it's calm, and we stay with you the whole time. Thousands of travellers have done this with us without a single problem.",
+    "faq.q2":"How do I book?",
+    "faq.a2":"Message us on Instagram or WhatsApp. Tell us which experience you want, your dates and how many people. We'll answer with everything you need to know and confirm your spot in the same conversation.",
+    "faq.q3":"Where do we meet?",
+    "faq.a3":"At São Conrado metro station, Exit A, right next to the Rocinha street market. It's easy to reach from Copacabana, Ipanema and Leblon, and we'll send you the exact pin when you book.",
+    "faq.q4":"Which languages do you speak?",
+    "faq.a4":"English, Spanish and Portuguese — we grew up switching between the three. This page is also translated into French so you can read it comfortably, but the tour itself is guided in English, Spanish or Portuguese. Write to us in whichever of those three works best for you.",
+    "ft.title":"Come see<br>the real Rio 🇧🇷","ft.cta":"Message us on Instagram @rocinhacousins",
+    "ft.meet":"We meet at São Conrado metro station, Exit A · Rio de Janeiro",
+    "ft.legal":"Rocinha Cousins · Local guides born and raised in Rocinha · Proudly supporting Acorda Capoeira",
+    "nav.exp":"Experiences","nav.cz":"The cousins","nav.inc":"Included","nav.faq":"FAQ",
+    "meta.title":"Rocinha Cousins — The REAL Rocinha Experience",
+    "meta.desc":"100% safe, private favela experiences in Rio de Janeiro, guided by two cousins born and raised in Rocinha.",
+    "wa.text":"Hi! I found your website and I'd like to know more about your Rocinha experiences.",
+    "dock.wa":"WhatsApp","dock.ig":"Instagram"
+  },
+  es:{
+    "hero.a":"La","hero.b":"VERDADERA","hero.c":"Experiencia Rocinha",
+    "hero.sub":"Experiencias privadas y 100% seguras con dos primos locales — nacidos y criados en la favela más grande de Río.",
+    "hero.badge":"Hablamos English · Español · Português",
+    "cta.ig":"Escríbenos por Instagram","cta.see":"Ver las experiencias","cta.book":"Escríbenos para reservar",
+    "trust.1":"Guías nacidos y criados aquí","trust.2":"100% privado y seguro","trust.3":"Nada de safaris en jeep","trust.4":"Apoya un proyecto social local",
+    "exp.title":"Elige tu experiencia",
+    "exp.sub":"Grupos pequeños, privados y guiados por nosotros — nunca una van llena de desconocidos. Dinos cuál quieres y arreglamos el resto por mensaje.",
+    "e1.tag":"Mañana o tarde · 2 a 3½ horas","e1.title":"Tour privado por Rocinha y Vidigal",
+    "e1.body":"Un recorrido privado a pie por la favela más grande de América Latina con dos primos locales. Subida en moto-taxi hasta el mirador de Laboriaux, con vistas impresionantes del Pan de Azúcar, el mar y la Zona Sur de Río. Una demostración de capoeira en vivo en el proyecto social Acorda Capoeira, donde el Mestre Manel enseña a los niños del barrio desde hace más de veinte años. Después los callejones vibrantes de la Rua 1 y una terraza local tranquila para disfrutarlo todo. Cultura real, gente real, el Río real.",
+    "e2.tag":"De noche · Toda la noche con nosotros","e2.title":"Fiesta en la favela — Baile Funk",
+    "e2.body":"Vive la verdadera noche carioca desde dentro. Te llevamos con total seguridad a un baile funk auténtico en Rocinha o Vidigal — la fiesta a la que van los locales de verdad. Baila, siente la energía y vive la cultura con guías de confianza a tu lado toda la noche.",
+    "e3.tag":"Mejor al atardecer · Unas 3 horas","e3.title":"Caminata a Dois Irmãos",
+    "e3.body":"Sube el icónico morro Dois Irmãos desde Vidigal para conseguir la vista panorámica más impresionante de todo Río — Ipanema, Leblon, el mar y la favela abajo. Guiado paso a paso por un primo local. Inolvidable al atardecer.",
+    "cz.title":"Dos primos.<br>Una favela.<br>Tu Río.",
+    "cz.p1":"Nacimos aquí, crecimos aquí y seguimos viviendo aquí. Rocinha no es una parada en nuestra ruta — es nuestra casa, y en los callejones todos nos conocen por el nombre.",
+    "cz.p2":"Por eso llevamos un solo grupo a la vez. Sin vans, sin audioguías, sin treinta personas fotografiando terrazas desde un jeep. Solo tú y nosotros, caminando a tu ritmo, parando donde quieras, comiendo donde comemos, conociendo a la gente con la que crecimos.",
+    "cz.note":"<b>Parte de cada experiencia va a Acorda Capoeira</b>, el proyecto social que enseña capoeira a los niños de Rocinha. Venir con nosotros deja dinero directamente en la comunidad que visitas.",
+    "gal.title":"Gente real, días reales",
+    "rev.title":"En palabras de nuestros huéspedes","rev.sub":"Cada reseña es de alguien que realmente hizo el tour — léelas directo en TripAdvisor, sin editar.",
+    "rev.1":"[ Pega aquí la reseña del cliente — 2 a 4 líneas ]","rev.1n":"Nombre · País",
+    "rev.2":"[ Pega aquí la reseña del cliente — 2 a 4 líneas ]","rev.2n":"Nombre · País",
+    "rev.3":"[ Pega aquí la reseña del cliente — 2 a 4 líneas ]","rev.3n":"Nombre · País",
+    "rev.ta":"Ver nuestras reseñas en TripAdvisor",
+    "inc.title":"Lo que realmente incluye","inc.sub":"Sin letra chica y sin extras sorpresa en el punto de encuentro. Esto entra en cada reserva.",
+    "inc.1t":"Solo tu grupo — de 6 a 8 personas, nunca más","inc.1d":"Si reservan dos, son ustedes dos. Si reservan seis, son sus seis. Nunca juntamos reservas para llenar un horario: por eso no usamos vans.",
+    "inc.2t":"Uno de nosotros contigo todo el tiempo","inc.2d":"Sin pasarte a un conductor, sin encontrarte con un desconocido a mitad del camino. El primo que responde tu mensaje es el primo que camina contigo.",
+    "inc.3t":"Los viajes en moto-taxi van incluidos","inc.3d":"Subir el morro es la mitad de la diversión y ya está incluido — no pagas extra al pie de la subida.",
+    "inc.4t":"Registrados en Favela Turismo","inc.4d":"Cada tour que hacemos queda registrado en la app Favela Turismo, el registro oficial del turismo dentro de la comunidad.",
+    "faq.title":"Preguntas",
+    "faq.q1":"¿Es seguro?",
+    "faq.a1":"Sí. Vivimos en Rocinha y conocemos cada esquina y cada persona del camino. Caminas con locales respetados aquí, vamos solo donde y cuando está tranquilo, y estamos contigo todo el tiempo. Miles de viajeros lo han hecho con nosotros sin un solo problema.",
+    "faq.q2":"¿Cómo reservo?",
+    "faq.a2":"Escríbenos por Instagram o WhatsApp. Dinos qué experiencia quieres, tus fechas y cuántas personas son. Te respondemos con todo lo que necesitas saber y confirmamos tu lugar en la misma conversación.",
+    "faq.q3":"¿Dónde nos encontramos?",
+    "faq.a3":"En la estación de metro São Conrado, Salida A, justo al lado de la feria de Rocinha. Se llega fácil desde Copacabana, Ipanema y Leblon, y te enviamos la ubicación exacta al reservar.",
+    "faq.q4":"¿Qué idiomas hablan?",
+    "faq.a4":"Inglés, español y portugués — crecimos cambiando entre los tres. Esta página también está traducida al francés para que la leas cómodo, pero el tour se guía en inglés, español o portugués. Escríbenos en el que prefieras de esos tres.",
+    "ft.title":"Ven a ver<br>el Río real 🇧🇷","ft.cta":"Escríbenos por Instagram @rocinhacousins",
+    "ft.meet":"Nos encontramos en la estación de metro São Conrado, Salida A · Río de Janeiro",
+    "ft.legal":"Rocinha Cousins · Guías locales nacidos y criados en Rocinha · Apoyando a Acorda Capoeira",
+    "nav.exp":"Experiencias","nav.cz":"Los primos","nav.inc":"Incluido","nav.faq":"FAQ",
+    "meta.title":"Rocinha Cousins — La verdadera experiencia Rocinha",
+    "meta.desc":"Experiencias privadas y 100% seguras en la favela de Río de Janeiro, guiadas por dos primos nacidos y criados en Rocinha.",
+    "wa.text":"¡Hola! Encontré su página y me gustaría saber más sobre las experiencias en Rocinha.",
+    "dock.wa":"WhatsApp","dock.ig":"Instagram"
+  },
+  fr:{
+    "hero.a":"La","hero.b":"VRAIE","hero.c":"Expérience Rocinha",
+    "hero.sub":"Des expériences privées et 100% sûres avec deux cousins du quartier — nés et grandis dans la plus grande favela de Rio.",
+    "hero.badge":"On parle English · Español · Português",
+    "cta.ig":"Écris-nous sur Instagram","cta.see":"Voir les expériences","cta.book":"Écris-nous pour réserver",
+    "trust.1":"Guides nés et grandis ici","trust.2":"100% privé et sûr","trust.3":"Pas de safari en jeep","trust.4":"Soutient un projet social local",
+    "exp.title":"Choisis ton expérience",
+    "exp.sub":"En petit comité, en privé et avec nous — jamais un van rempli d'inconnus. Dis-nous laquelle t'intéresse et on règle le reste par message.",
+    "e1.tag":"Matin ou après-midi · 2 à 3½ heures","e1.title":"Visite privée de Rocinha et Vidigal",
+    "e1.body":"Une balade privée et immersive dans la plus grande favela d'Amérique latine avec deux cousins du quartier. Une montée en moto-taxi jusqu'au belvédère de Laboriaux, avec des vues à couper le souffle sur le Pain de Sucre, l'océan et la Zone Sud de Rio. Une démonstration de capoeira en direct au projet social Acorda Capoeira, où Mestre Manel enseigne aux enfants du quartier depuis plus de vingt ans. Ensuite les ruelles vibrantes de la Rua 1, et un toit-terrasse tranquille pour profiter de tout ça. Culture réelle, gens réels, le vrai Rio.",
+    "e2.tag":"À la nuit tombée · Toute la nuit avec nous","e2.title":"Fête en favela — Baile Funk",
+    "e2.body":"Découvre la vraie vie nocturne de Rio de l'intérieur. On t'emmène en toute sécurité dans un baile funk authentique à Rocinha ou Vidigal — la fête où vont vraiment les habitants. Danse, ressens l'énergie et vis la culture avec des guides de confiance à tes côtés toute la nuit.",
+    "e3.tag":"Au coucher du soleil · Environ 3 heures","e3.title":"Randonnée des Dois Irmãos",
+    "e3.body":"Grimpe l'emblématique mont Dois Irmãos depuis Vidigal pour la vue panoramique la plus spectaculaire de tout Rio — Ipanema, Leblon, l'océan et la favela en contrebas. Accompagné à chaque pas par un cousin du quartier. Inoubliable au coucher du soleil.",
+    "cz.title":"Deux cousins.<br>Une favela.<br>Ton Rio.",
+    "cz.p1":"On est nés ici, on a grandi ici, et on y vit toujours. Rocinha n'est pas une étape sur notre parcours — c'est chez nous, et dans les ruelles tout le monde nous connaît par notre prénom.",
+    "cz.p2":"C'est pour ça qu'on ne prend qu'un groupe à la fois. Pas de van, pas d'audioguide, pas de trente personnes qui photographient les toits depuis un jeep. Juste toi et nous, à ton rythme, en s'arrêtant où tu veux, en mangeant là où on mange, en rencontrant les gens avec qui on a grandi.",
+    "cz.note":"<b>Une partie de chaque expérience va à Acorda Capoeira</b>, le projet social qui enseigne la capoeira aux enfants de Rocinha. Venir avec nous, c'est mettre de l'argent directement dans la communauté que tu visites.",
+    "gal.title":"Des vrais gens, des vraies journées",
+    "rev.title":"Les mots de nos invités","rev.sub":"Chaque avis vient d'un voyageur qui a vraiment fait la visite — lis-les directement sur TripAdvisor, sans retouche.",
+    "rev.1":"[ Colle ici l'avis d'un client — 2 à 4 lignes ]","rev.1n":"Prénom · Pays",
+    "rev.2":"[ Colle ici l'avis d'un client — 2 à 4 lignes ]","rev.2n":"Prénom · Pays",
+    "rev.3":"[ Colle ici l'avis d'un client — 2 à 4 lignes ]","rev.3n":"Prénom · Pays",
+    "rev.ta":"Voir nos avis sur TripAdvisor",
+    "inc.title":"Ce qui est vraiment compris","inc.sub":"Pas de petites lignes, pas de suppléments surprise au point de rendez-vous. Voilà ce que comprend chaque réservation.",
+    "inc.1t":"Ton groupe seulement — de 6 à 8 personnes, jamais plus","inc.1d":"Vous réservez à deux, vous serez deux. Vous réservez à six, vous serez six. On ne regroupe jamais deux réservations pour remplir un créneau — c'est exactement pour ça qu'on ne fait pas de van.",
+    "inc.2t":"L'un de nous avec toi du début à la fin","inc.2d":"Pas de passage de relais à un chauffeur, pas de rendez-vous avec un inconnu en route. Le cousin qui répond à ton message est le cousin qui marche avec toi.",
+    "inc.3t":"Les trajets en moto-taxi sont compris","inc.3d":"Monter la colline, c'est déjà la moitié du plaisir, et c'est compris — tu ne paies rien en plus en bas de la côte.",
+    "inc.4t":"Enregistrés auprès de Favela Turismo","inc.4d":"Chaque visite qu'on organise est enregistrée dans l'application Favela Turismo, le registre officiel du tourisme dans la communauté.",
+    "faq.title":"Questions",
+    "faq.q1":"C'est sûr ?",
+    "faq.a1":"Oui. On vit à Rocinha et on connaît chaque coin de rue et chaque personne sur le chemin. Tu marches avec des locaux respectés ici, on ne va que là où et quand c'est calme, et on reste avec toi tout le temps. Des milliers de voyageurs l'ont fait avec nous sans le moindre problème.",
+    "faq.q2":"Comment réserver ?",
+    "faq.a2":"Écris-nous sur Instagram ou WhatsApp. Dis-nous quelle expérience t'intéresse, tes dates et combien vous êtes. On te répond avec tout ce qu'il faut savoir et on confirme ta place dans la même conversation.",
+    "faq.q3":"Où se retrouve-t-on ?",
+    "faq.a3":"À la station de métro São Conrado, Sortie A, juste à côté du marché de rue de Rocinha. C'est facile d'accès depuis Copacabana, Ipanema et Leblon, et on t'envoie le point exact à la réservation.",
+    "faq.q4":"Quelles langues parlez-vous ?",
+    "faq.a4":"L'anglais, l'espagnol et le portugais. Cette page est traduite en français pour que tu puisses tout lire tranquillement, mais la visite elle-même se fait en anglais, en espagnol ou en portugais — on ne parle pas encore français. Écris-nous en anglais ou en espagnol et tout se passera bien.",
+    "ft.title":"Viens voir<br>le vrai Rio 🇧🇷","ft.cta":"Écris-nous sur Instagram @rocinhacousins",
+    "ft.meet":"Rendez-vous à la station de métro São Conrado, Sortie A · Rio de Janeiro",
+    "ft.legal":"Rocinha Cousins · Guides locaux nés et grandis à Rocinha · Fiers de soutenir Acorda Capoeira",
+    "nav.exp":"Expériences","nav.cz":"Les cousins","nav.inc":"Inclus","nav.faq":"FAQ",
+    "meta.title":"Rocinha Cousins — La vraie expérience Rocinha",
+    "meta.desc":"Des expériences privées et 100% sûres dans la favela de Rio de Janeiro, guidées par deux cousins nés et grandis à Rocinha.",
+    "wa.text":"Bonjour ! J'ai trouvé votre site et j'aimerais en savoir plus sur vos expériences à Rocinha.",
+    "dock.wa":"WhatsApp","dock.ig":"Instagram"
+  },
+  pt:{
+    "hero.a":"A","hero.b":"VERDADEIRA","hero.c":"Experiência Rocinha",
+    "hero.sub":"Experiências privadas e 100% seguras com dois primos da comunidade — nascidos e criados na maior favela do Rio.",
+    "hero.badge":"Falamos English · Español · Português",
+    "cta.ig":"Chama a gente no Instagram","cta.see":"Ver as experiências","cta.book":"Chama pra reservar",
+    "trust.1":"Guias nascidos e criados aqui","trust.2":"100% privado e seguro","trust.3":"Nada de safári de jipe","trust.4":"Apoia um projeto social local",
+    "exp.title":"Escolha sua experiência",
+    "exp.sub":"Pequeno, privado e guiado por nós — nunca uma van cheia de desconhecidos. Diz qual você quer e a gente acerta o resto na conversa.",
+    "e1.tag":"Manhã ou tarde · 2 a 3½ horas","e1.title":"Tour privado Rocinha e Vidigal",
+    "e1.body":"Um passeio privado e imersivo pela maior favela da América Latina com dois primos daqui. Subida de moto-táxi até o mirante do Laboriaux, com vistas de tirar o fôlego do Pão de Açúcar, do mar e da Zona Sul do Rio. Uma apresentação de capoeira ao vivo no projeto social Acorda Capoeira, onde o Mestre Manel ensina as crianças da comunidade há mais de vinte anos. Depois os becos vibrantes da Rua 1 e uma laje tranquila pra curtir tudo isso. Cultura de verdade, gente de verdade, o Rio de verdade.",
+    "e2.tag":"À noite · A noite toda com a gente","e2.title":"Festa na favela — Baile Funk",
+    "e2.body":"Viva a noite carioca de verdade, por dentro. A gente leva você com segurança pra um baile funk autêntico na Rocinha ou no Vidigal — a festa onde o pessoal daqui realmente vai. Dança, sente a energia e vive a cultura com guias de confiança do seu lado a noite inteira.",
+    "e3.tag":"Melhor no pôr do sol · Cerca de 3 horas","e3.title":"Trilha do Dois Irmãos",
+    "e3.body":"Suba o icônico Morro Dois Irmãos saindo do Vidigal para a vista panorâmica mais impressionante de todo o Rio — Ipanema, Leblon, o mar e a favela lá embaixo. Guiado passo a passo por um primo daqui. Inesquecível no pôr do sol.",
+    "cz.title":"Dois primos.<br>Uma favela.<br>Seu Rio.",
+    "cz.p1":"A gente nasceu aqui, cresceu aqui e continua morando aqui. A Rocinha não é uma parada no roteiro — é casa, e nos becos todo mundo conhece a gente pelo nome.",
+    "cz.p2":"Por isso levamos um grupo por vez. Sem van, sem fone de ouvido, sem trinta pessoas fotografando laje de dentro de um jipe. Só você e a gente, no seu ritmo, parando onde quiser, comendo onde a gente come, conhecendo as pessoas com quem crescemos.",
+    "cz.note":"<b>Parte de cada experiência vai para o Acorda Capoeira</b>, o projeto social que ensina capoeira para as crianças da Rocinha. Vir com a gente deixa dinheiro direto na comunidade que você está visitando.",
+    "gal.title":"Gente real, dias reais",
+    "rev.title":"Nas palavras de quem veio","rev.sub":"Cada avaliação é de alguém que realmente fez o tour — leia direto no TripAdvisor, sem edição.",
+    "rev.1":"[ Cole aqui a avaliação do cliente — 2 a 4 linhas ]","rev.1n":"Nome · País",
+    "rev.2":"[ Cole aqui a avaliação do cliente — 2 a 4 linhas ]","rev.2n":"Nome · País",
+    "rev.3":"[ Cole aqui a avaliação do cliente — 2 a 4 linhas ]","rev.3n":"Nome · País",
+    "rev.ta":"Ver nossas avaliações no TripAdvisor",
+    "inc.title":"O que está incluído de verdade","inc.sub":"Sem letra miúda e sem extra surpresa na hora do encontro. Isso entra em toda reserva.",
+    "inc.1t":"Só o seu grupo — 6 a 8 pessoas, nunca mais","inc.1d":"Reservou pra dois, são vocês dois. Reservou pra seis, são os seus seis. A gente nunca junta reservas pra fechar horário — é exatamente por isso que não trabalhamos com van.",
+    "inc.2t":"Um de nós com você o tempo todo","inc.2d":"Sem repassar pra motorista, sem encontrar desconhecido no meio do caminho. O primo que responde sua mensagem é o primo que caminha com você.",
+    "inc.3t":"As corridas de moto-táxi já entram","inc.3d":"Subir o morro é metade da diversão e já está incluído — você não paga nada a mais no pé da ladeira.",
+    "inc.4t":"Registrados no Favela Turismo","inc.4d":"Todo tour que a gente faz fica registrado no app Favela Turismo, o cadastro oficial do turismo dentro da comunidade.",
+    "faq.title":"Perguntas",
+    "faq.q1":"É seguro?",
+    "faq.a1":"É sim. A gente mora na Rocinha e conhece cada esquina e cada pessoa do caminho. Você anda com quem é daqui e é respeitado aqui, a gente só vai onde e quando está tranquilo, e fica com você o tempo todo. Milhares de viajantes já fizeram isso com a gente sem nenhum problema.",
+    "faq.q2":"Como faço pra reservar?",
+    "faq.a2":"Chama a gente no Instagram ou no WhatsApp. Diz qual experiência você quer, as datas e quantas pessoas são. A gente responde com tudo que você precisa saber e confirma sua vaga na mesma conversa.",
+    "faq.q3":"Onde a gente se encontra?",
+    "faq.a3":"Na estação de metrô São Conrado, Saída A, do lado da feira da Rocinha. É fácil chegar de Copacabana, Ipanema e Leblon, e a gente manda a localização exata quando você reservar.",
+    "faq.q4":"Que idiomas vocês falam?",
+    "faq.a4":"Inglês, espanhol e português — crescemos alternando entre os três. A página também está traduzida em francês pra facilitar a leitura, mas o tour em si é guiado em inglês, espanhol ou português.",
+    "ft.title":"Vem ver<br>o Rio de verdade 🇧🇷","ft.cta":"Chama a gente no Instagram @rocinhacousins",
+    "ft.meet":"Encontro na estação de metrô São Conrado, Saída A · Rio de Janeiro",
+    "ft.legal":"Rocinha Cousins · Guias locais nascidos e criados na Rocinha · Apoiando o Acorda Capoeira",
+    "nav.exp":"Experiências","nav.cz":"Os primos","nav.inc":"Incluído","nav.faq":"Dúvidas",
+    "meta.title":"Rocinha Cousins — A verdadeira experiência Rocinha",
+    "meta.desc":"Experiências privadas e 100% seguras na favela do Rio de Janeiro, guiadas por dois primos nascidos e criados na Rocinha.",
+    "wa.text":"Oi! Encontrei o site de vocês e queria saber mais sobre as experiências na Rocinha.",
+    "dock.wa":"WhatsApp","dock.ig":"Instagram"
+  }
+};
+
+/* ═══════════ LANGUAGE SWITCH ═══════════ */
+const buttons = document.querySelectorAll('.langs button');
+const WA_NUMBER = '5521978791943';
+
+function setLang(code){
+  const dict = T[code] || T.en;
+
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const val = dict[el.dataset.i];
+    if(val !== undefined) el.innerHTML = val;
+  });
+
+  /* page language, title and search-engine description */
+  document.documentElement.lang = code;
+  document.title = dict['meta.title'];
+  document.getElementById('metaDesc').setAttribute('content', dict['meta.desc']);
+
+  /* WhatsApp opens with the first message already written, in the visitor's language */
+  const msg = encodeURIComponent(dict['wa.text']);
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
+    a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + msg;
+  });
+
+  buttons.forEach(b=>b.setAttribute('aria-pressed', b.dataset.lang === code));
+  buildTicker();
+}
+buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+/* auto-detect the visitor's browser language */
+const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+setLang(['es','fr','pt'].includes(nav) ? nav : 'en');
+
+/* ═══════════ TICKER (duplicate group for a seamless loop) ═══════════ */
+function buildTicker(){
+  const track = document.getElementById('ticker');
+  const first = track.firstElementChild;
+  while(track.children.length > 1) track.removeChild(track.lastElementChild);
+  const clone = first.cloneNode(true);
+  clone.setAttribute('aria-hidden','true');           /* screen readers read it once, not twice */
+  clone.querySelectorAll('[data-i]').forEach(el=>el.removeAttribute('data-i'));
+  track.appendChild(clone);
+}
+
+/* ═══════════ SCROLL BEHAVIOUR ═══════════ */
+const topbar = document.getElementById('topbar');
+const dock = document.getElementById('dock');
+let ticking = false;
+function onScroll(){
+  const y = window.scrollY;
+  topbar.classList.toggle('solid', y > 40);
+  dock.classList.toggle('show', y > window.innerHeight * .7);
+  ticking = false;
+}
+addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking = true; } },{passive:true});
+onScroll();
+
+/* ═══════════ CAROUSEL (experience photos) ═══════════ */
+function initCarousels(){
+  document.querySelectorAll('.carousel').forEach(car=>{
+    const track = car.querySelector('.carousel-track');
+    const slides = [...car.querySelectorAll('.carousel-slide')];
+    const dotsWrap = car.querySelector('.car-dots');
+    const prevBtn = car.querySelector('.car-prev');
+    const nextBtn = car.querySelector('.car-next');
+    if(slides.length <= 1){ car.classList.add('single'); return; }
+
+    slides.forEach((_,i)=>{
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'car-dot' + (i===0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to photo ' + (i+1));
+      dot.addEventListener('click', ()=> goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = [...dotsWrap.children];
+
+    function currentIndex(){
+      return Math.round(track.scrollLeft / track.clientWidth);
+    }
+    function update(){
+      const i = currentIndex();
+      dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+    }
+    function goTo(i){
+      track.scrollTo({left: i*track.clientWidth, behavior:'smooth'});
+    }
+    prevBtn.addEventListener('click', ()=> goTo(Math.max(0, currentIndex()-1)));
+    nextBtn.addEventListener('click', ()=> goTo(Math.min(slides.length-1, currentIndex()+1)));
+
+    let ticking = false;
+    track.addEventListener('scroll', ()=>{
+      if(!ticking){ requestAnimationFrame(()=>{ update(); ticking=false; }); ticking=true; }
+    }, {passive:true});
+  });
+}
+initCarousels();
+
+/* ═══════════ REVEAL ON SCROLL ═══════════ */
+document.querySelectorAll('.grid-gal .ph').forEach((el,i)=>el.style.setProperty('--i', i));
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
