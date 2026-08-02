@@ -377,6 +377,12 @@ details p{padding:0 0 28px;color:#C6C4C1}
 }
 .socials a:hover{border-color:var(--green);color:var(--green);transform:translateY(-3px)}
 .socials svg{width:21px;height:21px}
+/* O rodapé é centralizado, mas p{max-width:68ch} deixa a caixa do parágrafo
+   encostada à esquerda: o text-align:center centralizava o texto dentro de
+   uma caixa de 606px, não dentro da página. As duas últimas linhas saíam
+   ~320px fora do eixo e a linha divisória do .legal aparecia como um traço
+   curto grudado na margem esquerda. */
+.foot p{margin-inline:auto}
 .meet{margin-top:40px;font-size:14px;color:var(--mute)}
 .legal{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);letter-spacing:.04em}
 
