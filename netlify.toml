@@ -1,0 +1,33 @@
+# O que vai para o ar é a pasta _publicar, montada com apenas o que o
+# visitante precisa baixar: index.html, fotos/, hero.mp4 e share.jpg.
+#
+# Fica de fora a pasta originais/, que guarda os JPEG em tamanho cheio.
+# Eles existem para poder regerar os WebP no futuro, mas nenhum visitante
+# os requisita — não faz sentido ocupar a CDN com 4 MB parados.
+#
+# Para remontar a pasta depois de mexer no site:
+#   rm -rf _publicar && mkdir _publicar
+#   cp index.html share.jpg hero.mp4 _publicar/ && cp -r fotos _publicar/
+
+[build]
+  publish = "_publicar"
+  # A pasta é montada na hora do deploy, então não precisa ficar versionada
+  # (e não duplica as fotos dentro do repositório).
+  command = "rm -rf _publicar && mkdir -p _publicar && cp index.html share.jpg hero.mp4 _publicar/ && cp -r fotos _publicar/"
+
+[[headers]]
+  for = "/fotos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/hero.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# O HTML é revalidado sempre: sem isso, uma correção não chega a quem já
+# visitou o site antes.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
