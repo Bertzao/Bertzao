@@ -208,18 +208,22 @@ p{max-width:64ch}
 }
 .fala b{color:var(--breu);font-weight:400}
 
+/* A faixa é 3/2 e não 16/9: o material (foto e vídeo) é vertical, 3/4, e
+   numa faixa panorâmica o corte come mais da metade da altura. */
 .hero-foto{
   margin-top:clamp(40px,6vw,72px);width:100%;
-  aspect-ratio:16/9;overflow:hidden;background:var(--cal-2);
+  aspect-ratio:3/2;overflow:hidden;background:var(--cal-2);
 }
 /* No celular a faixa vira quadrada: em 4/5 a foto praticamente cabia
    inteira e o corte não tinha o que morder, então sobrava céu. */
 @media(max-width:700px){.hero-foto{aspect-ratio:1/1}}
-/* A foto é vertical e entra numa faixa larga: sem puxar o corte bem para
-   baixo, a faixa mostra encosta e mata, e a favela — o assunto — fica de
-   fora. Em tela estreita a faixa é alta e o corte pode subir. */
-.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center 88%}
-@media(max-width:700px){.hero-foto img{object-position:center 90%}}
+.hero-foto video,.hero-foto img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  /* Vale para o vídeo e para o poster. O material é vertical e o assunto
+     fica na parte de baixo do quadro; centralizar o corte mostrava céu. */
+  object-position:center 80%;
+}
+@media(max-width:700px){.hero-foto video,.hero-foto img{object-position:center 88%}}
 
 /* ── ticker ────────────────────────────────────────────────── */
 .ticker{
@@ -302,9 +306,11 @@ section,footer{scroll-margin-top:74px}
 /* Caixa alta aqui seria erro: são frases, não etiquetas. Uma placa de rua
    pode ser caixa alta; "onde a gente para só pra olhar" não. */
 .rota .como{font-family:var(--mono);font-size:12.5px;letter-spacing:.01em;color:var(--tinta-2)}
+/* 12.5px é o piso: abaixo disso o iOS passa a dar zoom sozinho no toque e
+   o texto vira grão na tela do celular. */
 .rota-legenda{
   display:flex;flex-wrap:wrap;gap:8px 20px;margin:-8px 0 26px 30px;
-  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--tinta-2);
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--tinta-2);
 }
 .rota-legenda span{display:inline-flex;align-items:center;gap:7px}
 .rota-legenda i{display:block;width:20px;border-top:2px solid var(--caixa)}
@@ -436,7 +442,10 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
 }
 .dock.show{transform:none}
 .dock .btn{flex:1;justify-content:center;padding:14px 12px;font-size:14.5px;box-shadow:0 12px 30px -12px rgba(28,21,18,.7)}
-@media(max-width:759px){.foot{padding-bottom:118px}}
+/* O respiro extra aqui existia só para a barra fixa não tapar o rodapé.
+   Agora ela some sozinha quando o rodapé aparece, então o espaço vazio
+   deixou de ter função. */
+@media(max-width:759px){.foot{padding-bottom:var(--secao)}}
 @media(min-width:760px){
   .dock{left:auto;right:24px;bottom:24px;flex-direction:column;align-items:flex-end}
   .dock .btn{flex:none}
@@ -527,10 +536,17 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
     <p class="fala"><b data-i="hero.badge">English · Español · Português spoken</b></p>
   </div>
 
-  <!-- FOTO 01 — a vista da Rocinha. Fica em faixa própria, sem véu escuro
-       por cima e sem texto disputando espaço com ela. -->
+  <!-- A vista da Rocinha, em faixa própria: sem véu escuro por cima e sem
+       texto disputando espaço com ela.
+       O vídeo não tem o atributo autoplay de propósito — quem dá play é o
+       script, e só quando a pessoa não pediu menos movimento no sistema.
+       Sem play, o poster (a foto) fica na tela, então a faixa nunca aparece
+       vazia: nem sem JavaScript, nem se o vídeo falhar. -->
   <div class="hero-foto">
-    <img src="fotos/01.webp" alt="Aerial view of Rocinha favela against the mountain, with the ocean in the distance" loading="eager" fetchpriority="high">
+    <video id="heroVideo" poster="fotos/01.webp" muted loop playsinline preload="metadata"
+           aria-label="Aerial view of Rocinha favela against the mountain, with the ocean in the distance">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
@@ -1047,11 +1063,17 @@ function buildTicker(){
 /* ═══════════ SCROLL BEHAVIOUR ═══════════ */
 const topbar = document.getElementById('topbar');
 const dock = document.getElementById('dock');
+const rodape = document.querySelector('.foot');
 let ticking = false;
 function onScroll(){
   const y = window.scrollY;
   topbar.classList.toggle('solid', y > 40);
-  dock.classList.toggle('show', y > window.innerHeight * .7);
+
+  /* A barra fixa some quando o rodapé entra na tela. Ali ela só atrapalha:
+     oferece exatamente os mesmos dois contatos que o rodapé já mostra em
+     tamanho grande, e no celular ficava por cima do botão principal. */
+  const rodapeNaTela = rodape && rodape.getBoundingClientRect().top < window.innerHeight - 40;
+  dock.classList.toggle('show', y > window.innerHeight * .7 && !rodapeNaTela);
   ticking = false;
 }
 addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(onScroll); ticking = true; } },{passive:true});
@@ -1097,6 +1119,31 @@ function initCarousels(){
   });
 }
 initCarousels();
+
+/* ═══════════ VÍDEO DO HERO ═══════════
+   Autoplay fica no script, não no HTML, para poder respeitar quem configurou
+   menos movimento no sistema — nesse caso o poster continua na tela. Se o
+   navegador recusar o play (política de autoplay, dados economizados), o
+   poster também fica: em nenhum cenário a faixa aparece vazia. */
+(function(){
+  const v = document.getElementById('heroVideo');
+  if(!v) return;
+  const menosMovimento = matchMedia('(prefers-reduced-motion: reduce)');
+  function decidir(){
+    if(menosMovimento.matches){ v.pause(); return; }
+    v.play().catch(()=>{});           /* recusado: fica o poster */
+  }
+  decidir();
+  menosMovimento.addEventListener('change', decidir);
+
+  /* não gastar bateria e dados rodando um vídeo fora da tela */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>es.forEach(e=>{
+      if(menosMovimento.matches) return;
+      e.isIntersecting ? v.play().catch(()=>{}) : v.pause();
+    }),{threshold:.1}).observe(v);
+  }
+})();
 
 /* ═══════════ REVEAL ON SCROLL ═══════════ */
 document.querySelectorAll('.grid-gal .ph').forEach((el,i)=>el.style.setProperty('--i', i));
