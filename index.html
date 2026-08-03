@@ -24,7 +24,7 @@
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0E0E10">
+<meta name="theme-color" content="#0A0A0C">
 
 <!-- A foto do hero é a maior imagem da primeira tela; avisar o navegador cedo
      faz ela começar a baixar junto com o CSS, em vez de esperar a página montar. -->
@@ -56,277 +56,285 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   ROCINHA COUSINS — sistema visual
+   ROCINHA COUSINS — "sobe o morro"
+
+   O QUE ESTE SITE É
+   Um tour, não uma butique. Dois primos de vinte e poucos anos
+   levando gringo pra cima do morro de moto-táxi. Tem que parecer
+   jovem e caro ao mesmo tempo — marca de streetwear, não agência
+   de turismo.
 
    COR
-   As cores não foram escolhidas por gosto: foram medidas nas fotos
-   deste próprio tour. Amostrando fachadas, becos, laje e toldo de
-   feira, o que domina é terra — tijolo, ocre, areia — mais o azul
-   das caixas d'água das lajes e um vermelho de toldo da Rua 1.
-   Verde-e-amarelo de bandeira não aparece em lugar nenhum, e por
-   isso saiu do site: dizia "Brasil genérico", não Rocinha.
+   Um acento quente só: o laranja de luz de sódio. É a cor real da
+   iluminação dos becos à noite e da hora dourada batendo na
+   encosta. Não é laranja de moodboard: é a luz que existe lá.
+   Todo o resto é asfalto e cal, para o laranja nunca disputar.
 
-   O acento é o azul de caixa d'água. É a cor construída mais
-   presente num telhado de favela e a menos esperada num site de
-   turismo — é nela que a página aposta.
-
-   CLARO E ESCURO TÊM SENTIDO
-   A página é diurna, porque o tour é diurno. Só dois blocos
-   invertem para escuro: o baile funk e o rodapé. Escuro aqui
-   quer dizer noite, não "moderno".
+   A ASSINATURA — O CORTE DO MORRO
+   As seções não se empilham com borda reta. O hero e o rodapé
+   cortam na diagonal, descendo da esquerda para a direita, no
+   mesmo sentido da encosta que aparece na foto. A Rocinha é uma
+   diagonal; a página passou a ser também.
+   Só dois cortes na página inteira. Repetir em toda seção
+   transformaria a ideia em enfeite.
    ═══════════════════════════════════════════════════════════════ */
 
 :root{
-  --cal:#EFE5D6;          /* parede caiada no sol — superfície principal */
-  --cal-2:#E5D8C5;        /* a mesma parede na sombra — blocos alternados */
-  --breu:#1C1512;         /* tinta: preto quente, com terra dentro */
-  --breu-2:#2A201B;
-  --tinta-2:#5C4A3F;      /* texto secundário */
-  --tijolo:#8A4B33;       /* tijolo aparente */
-  --caixa:#1B5F9E;        /* caixa d'água da laje — o acento */
-  --caixa-esc:#144A7C;
-  --ocre:#A87C14;         /* hora dourada */
-  --feira:#B5121E;        /* toldo da feira da Rua 1 — usado uma vez só */
-  --linha:rgba(28,21,18,.18);
-  --linha-esc:rgba(239,229,214,.16);
+  --asfalto:#0A0A0C;
+  --asfalto-2:#131317;
+  --asfalto-3:#1C1C21;
+  --sodio:#FF5A1E;
+  --sodio-2:#FF8348;
+  --cal:#F4F1EC;
+  --cinza:#9C958B;
+  --linha:rgba(244,241,236,.15);
 
-  --display:'Bricolage Grotesque','Archivo',system-ui,sans-serif;
-  --body:'Instrument Sans',system-ui,-apple-system,sans-serif;
-  --mono:'DM Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Archivo',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,Menlo,monospace;
 
-  --pad:clamp(20px,5vw,72px);
-  --secao:clamp(64px,9vw,116px);      /* respiro padrão */
-  --secao-forte:clamp(88px,13vw,168px); /* só nas viradas de assunto */
-  --max:1200px;
+  --pad:clamp(18px,5vw,72px);
+  --secao:clamp(72px,10vw,140px);
+  --max:1320px;
+  --corte:clamp(26px,5.5vw,96px);   /* a altura da diagonal do morro */
+  --sangra:calc(max(var(--pad), (100vw - var(--max))/2) * -1);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--asfalto)}
 body{
-  background:var(--cal);color:var(--breu);
-  font-family:var(--body);font-size:17.5px;line-height:1.6;
-  overflow-x:hidden;-webkit-font-smoothing:antialiased;
-  font-synthesis-weight:none;
+  background:var(--asfalto);color:var(--cal);
+  font-family:var(--body);font-size:17px;line-height:1.55;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;font-synthesis-weight:none;
 }
-img{max-width:100%;display:block}
+img,video{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--caixa);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:3px solid var(--sodio);outline-offset:3px}
 
 /* ── tipografia ────────────────────────────────────────────────
-   Caixa alta é reservada às etiquetas em mono, que é onde ela tem
-   função: placa, preço, duração. Título em caixa alta o site
-   inteiro fazia tudo gritar e nada se destacar. */
-h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:.98}
-h1{font-variation-settings:'wght' 800,'opsz' 96;font-size:clamp(40px,12.5vw,124px);line-height:.9}
-h2{font-variation-settings:'wght' 700,'opsz' 48;font-size:clamp(32px,5vw,62px)}
-h3{font-variation-settings:'wght' 700,'opsz' 24;font-size:clamp(23px,2.7vw,34px);line-height:1.05}
-p{max-width:64ch}
+   Archivo tem eixo de largura. O display usa a largura expandida
+   no peso máximo — é o que dá cara de pôster em vez de cara de
+   folheto. O corpo usa a mesma família na largura normal, então a
+   página inteira fala com uma voz só. */
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+h1{font-variation-settings:'wdth' 125,'wght' 900;font-size:clamp(46px,13vw,150px)}
+h2{font-variation-settings:'wdth' 118,'wght' 900;font-size:clamp(34px,6vw,84px)}
+h3{font-variation-settings:'wdth' 112,'wght' 800;font-size:clamp(26px,3.4vw,46px);line-height:.95}
+p{max-width:60ch}
 
-/* o degrau que faltava entre o título e o texto corrido */
-.deck{
-  font-size:clamp(18px,1.7vw,22px);line-height:1.45;color:var(--tinta-2);
-  font-variation-settings:'wght' 400;max-width:46ch;
-}
+.deck{font-size:clamp(17px,1.6vw,21px);line-height:1.5;color:var(--cinza);max-width:44ch}
 
-/* etiqueta utilitária: placa de rua, preço, duração */
+/* etiqueta utilitária: duração, tamanho do grupo, placa de rua */
 .tag{
-  font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--tijolo);
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sodio);
 }
+.tag-cinza{color:var(--cinza)}
 
 /* ── barra de topo ─────────────────────────────────────────── */
 .topbar{
   position:fixed;inset:0 0 auto 0;z-index:60;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
   padding:12px var(--pad);
-  background:rgba(239,229,214,0);transition:background .3s,border-color .3s;
-  border-bottom:1px solid transparent;
+  transition:background .3s,border-color .3s;border-bottom:1px solid transparent;
 }
-.topbar.solid{background:rgba(239,229,214,.92);backdrop-filter:blur(12px);border-bottom-color:var(--linha)}
+.topbar.solid{background:rgba(10,10,12,.9);backdrop-filter:blur(14px);border-bottom-color:var(--linha)}
 .brand{
-  font-family:var(--display);font-variation-settings:'wght' 800,'opsz' 14;
-  font-size:16px;letter-spacing:-.02em;line-height:1.05;
+  font-family:var(--display);font-variation-settings:'wdth' 118,'wght' 900;
+  font-size:15px;text-transform:uppercase;letter-spacing:-.01em;line-height:1;
   display:inline-flex;flex-direction:column;justify-content:center;min-height:44px;
 }
-.brand span{display:block;color:var(--caixa)}
+.brand span{color:var(--sodio)}
 
 .navlinks{display:none}
 @media(min-width:1080px){
-  .navlinks{display:flex;gap:28px;margin-right:auto;margin-left:48px}
+  .navlinks{display:flex;gap:26px;margin-right:auto;margin-left:44px}
   .navlinks a{
-    font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
-    color:var(--tinta-2);padding:6px 0;border-bottom:1px solid transparent;
-    transition:color .2s,border-color .2s;
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--cinza);padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
   }
-  .navlinks a:hover{color:var(--breu);border-bottom-color:var(--caixa)}
+  .navlinks a:hover{color:var(--cal);border-bottom-color:var(--sodio)}
 }
 
-.langs{display:flex;gap:1px;border:1px solid var(--linha);border-radius:3px;overflow:hidden}
+.langs{display:flex;border:1px solid var(--linha)}
 .langs button{
-  font-family:var(--mono);font-size:12px;letter-spacing:.06em;
-  color:var(--tinta-2);background:none;border:0;cursor:pointer;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--cinza);background:none;border:0;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;
-  min-height:44px;min-width:44px;padding:0 6px;transition:color .2s,background .2s;
+  min-height:44px;min-width:44px;padding:0 4px;transition:color .18s,background .18s;
 }
-.langs button:hover{background:rgba(28,21,18,.06);color:var(--breu)}
-.langs button[aria-pressed="true"]{background:var(--breu);color:var(--cal)}
+.langs button:hover{color:var(--cal)}
+.langs button[aria-pressed="true"]{background:var(--sodio);color:var(--asfalto)}
 
 /* ── botões ────────────────────────────────────────────────── */
 .btn{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--display);font-variation-settings:'wght' 700,'opsz' 14;
-  font-size:16px;letter-spacing:-.01em;
-  padding:15px 24px;border-radius:3px;
-  transition:transform .18s ease,background .18s,box-shadow .18s;
+  font-family:var(--display);font-variation-settings:'wdth' 112,'wght' 800;
+  font-size:14.5px;text-transform:uppercase;letter-spacing:.01em;
+  padding:17px 26px;border:1.5px solid transparent;
+  transition:background .18s,color .18s,transform .18s,border-color .18s;
 }
 .btn svg{width:18px;height:18px;flex:none}
-.btn-azul{background:var(--caixa);color:#fff}
-.btn-azul:hover{background:var(--caixa-esc);transform:translateY(-2px)}
-.btn-linha{border:1.5px solid var(--breu);color:var(--breu)}
-.btn-linha:hover{background:var(--breu);color:var(--cal);transform:translateY(-2px)}
-.btn-cal{background:var(--cal);color:var(--breu)}
-.btn-cal:hover{transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(0,0,0,.6)}
+.btn-laranja{background:var(--sodio);color:var(--asfalto)}
+.btn-laranja:hover{background:var(--sodio-2);transform:translateY(-2px)}
+.btn-linha{border-color:var(--linha);color:var(--cal)}
+.btn-linha:hover{border-color:var(--sodio);color:var(--sodio);transform:translateY(-2px)}
+.btn-cal{background:var(--cal);color:var(--asfalto)}
+.btn-cal:hover{background:#fff;transform:translateY(-2px)}
 
 /* ── hero ──────────────────────────────────────────────────────
-   O texto não fica mais em cima da foto. Sobrepor obrigava um véu
-   escuro que apagava justamente a favela, e é a solução que todo
-   site de viagem usa. Aqui o título tem campo limpo e a foto tem
-   a largura toda, sem véu e sem disputa. */
-.hero{padding:calc(88px + var(--pad)) var(--pad) 0}
-.hero-inner{max-width:var(--max);margin:0 auto}
-.hero h1{max-width:14ch}
-.hero h1 em{font-style:normal;color:var(--caixa);position:relative;white-space:nowrap}
-.hero .deck{margin:26px 0 30px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+   Mídia em tela cheia com o título por cima, e o véu escuro só no
+   terço de baixo — o meio da imagem, que é onde está a favela,
+   fica limpo. Um véu no quadro inteiro apagaria justamente o
+   assunto, que foi o erro da versão anterior. */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media video,.hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 72%;
+}
+/* Numa tela estreita e alta, o material vertical cabe quase inteiro e o
+   object-position não tem folga para morder: sobra céu e a favela fica
+   espremida atrás do texto. Uma aproximação leve, ancorada no terço de
+   baixo, empurra o céu para fora e traz o assunto para a tela. */
+@media(max-width:700px){
+  .hero-media video,.hero-media img{transform:scale(1.28);transform-origin:center 74%}
+}
+/* Sobre foto, a borda a 15% some. No hero ela precisa de mais presença. */
+.hero .btn-linha{border-color:rgba(244,241,236,.5);backdrop-filter:blur(2px)}
+.hero .btn-linha:hover{border-color:var(--sodio)}
+/* O véu é forte em cima (para o menu ler) e forte embaixo (para o texto
+   ler), mas quase inexistente na faixa do meio — que é onde está a favela.
+   Escurecer o quadro inteiro apagaria o assunto; deixar tudo limpo tornaria
+   o texto ilegível. O degradê resolve os dois sem escolher um. */
+.hero-media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(10,10,12,.62) 0,
+    rgba(10,10,12,.10) 20%,
+    rgba(10,10,12,.06) 38%,
+    rgba(10,10,12,.70) 60%,
+    rgba(10,10,12,.93) 84%,
+    var(--asfalto) 100%);
+}
+/* O CORTE DO MORRO: a base do hero desce da esquerda para a
+   direita, no mesmo sentido da encosta da foto.
+   O fio laranja marca a aresta. Sem ele o corte é preto contra
+   preto e a ideia desaparece — a diagonal precisa ser vista para
+   valer como assinatura. */
+.corte{position:absolute;left:0;right:0;bottom:-1px;height:var(--corte);z-index:3;pointer-events:none}
+.corte::before,.corte::after{
+  content:'';position:absolute;left:0;right:0;top:0;height:100%;
+  clip-path:polygon(0 0,100% 100%,100% 101%,0 101%);
+}
+.corte::before{background:var(--sodio);transform:translateY(-3px)}
+.corte::after{background:var(--asfalto)}
+.hero-inner{
+  position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;
+  padding:0 var(--pad) calc(var(--corte) + clamp(28px,5vh,64px));
+}
+.hero h1{max-width:11ch;text-shadow:0 2px 30px rgba(10,10,12,.5)}
+.hero h1 em{font-style:normal;color:var(--sodio)}
+/* Sobre foto o texto de apoio não pode ser cinza: some. Fica cal, com uma
+   sombra fechada que o descola do fundo sem precisar de mais véu. */
+.hero .deck{margin:20px 0 28px;color:var(--cal);text-shadow:0 1px 16px rgba(10,10,12,.9)}
+.hero .fala{text-shadow:0 1px 12px rgba(10,10,12,.9)}
+.hero .fala b{color:var(--cal)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
 .fala{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:26px;
-  font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--tinta-2);
+  display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:22px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);
 }
-.fala b{color:var(--breu);font-weight:400}
+.fala b{color:var(--cal);font-weight:400}
 
-/* A faixa é 3/2 e não 16/9: o material (foto e vídeo) é vertical, 3/4, e
-   numa faixa panorâmica o corte come mais da metade da altura. */
-.hero-foto{
-  margin-top:clamp(40px,6vw,72px);width:100%;
-  aspect-ratio:3/2;overflow:hidden;background:var(--cal-2);
-}
-/* No celular a faixa vira quadrada: em 4/5 a foto praticamente cabia
-   inteira e o corte não tinha o que morder, então sobrava céu. */
-@media(max-width:700px){.hero-foto{aspect-ratio:1/1}}
-.hero-foto video,.hero-foto img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  /* Vale para o vídeo e para o poster. O material é vertical e o assunto
-     fica na parte de baixo do quadro; centralizar o corte mostrava céu. */
-  object-position:center 80%;
-}
-@media(max-width:700px){.hero-foto video,.hero-foto img{object-position:center 88%}}
-
-/* ── ticker ────────────────────────────────────────────────── */
-.ticker{
-  background:var(--breu);color:var(--cal);overflow:hidden;padding:15px 0;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-}
-.ticker-track{display:flex;width:max-content;animation:slide 40s linear infinite}
+/* ── ticker ────────────────────────────────────────────────────
+   Laranja chapado, texto preto: é a faixa que grita, e por isso
+   fica sozinha nesse papel na página inteira. */
+.ticker{background:var(--sodio);color:var(--asfalto);overflow:hidden;padding:13px 0}
+.ticker-track{display:flex;width:max-content;animation:slide 38s linear infinite}
 .ticker-group{display:flex;align-items:center;flex:none}
 .ticker-item{
-  display:flex;align-items:center;gap:10px;padding:0 26px;flex:none;
-  font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;
-  text-transform:uppercase;white-space:nowrap;
+  display:flex;align-items:center;gap:9px;padding:0 22px;flex:none;
+  font-family:var(--mono);font-size:12px;letter-spacing:.13em;
+  text-transform:uppercase;white-space:nowrap;font-weight:700;
 }
-.ticker-item svg{width:16px;height:16px;color:var(--caixa);flex:none}
-.ticker-item:nth-child(even) svg{color:var(--ocre)}
+.ticker-item svg{width:15px;height:15px;flex:none}
 @keyframes slide{to{transform:translateX(-50%)}}
-@media(min-width:820px){
-  .ticker{-webkit-mask-image:none;mask-image:none;padding:16px var(--pad)}
-  .ticker-track{animation:none;width:100%;max-width:var(--max);margin:0 auto}
-  .ticker-group{width:100%;justify-content:space-between}
-  .ticker-group + .ticker-group{display:none}
-}
 
 /* ── seções ────────────────────────────────────────────────── */
 section{padding:var(--secao) var(--pad)}
-section.virada{padding-top:var(--secao-forte);padding-bottom:var(--secao-forte)}
-section,footer{scroll-margin-top:74px}
+section,footer{scroll-margin-top:70px}
 .wrap{max-width:var(--max);margin:0 auto}
-.head{max-width:640px;margin-bottom:clamp(36px,5vw,56px)}
+.head{max-width:700px;margin-bottom:clamp(34px,5vw,60px)}
 .head .tag{display:block;margin-bottom:14px}
-.head .deck{margin-top:18px}
+.head .deck{margin-top:18px;max-width:52ch}
 
-/* ── experiências ──────────────────────────────────────────── */
-.exp{display:grid;gap:clamp(26px,3.5vw,48px);padding:clamp(36px,5vw,56px) 0;border-top:1px solid var(--linha)}
-.exp:first-of-type{border-top:0;padding-top:0}
+/* ── experiências ──────────────────────────────────────────────
+   A foto sangra até a borda da tela, alternando de lado. Card com
+   margem dos dois lados é linguagem de e-commerce; sangrar é o que
+   faz parecer editorial de marca. */
+.exp{display:grid;gap:clamp(22px,3vw,44px);margin-bottom:var(--secao)}
+.exp:last-of-type{margin-bottom:0}
 .exp-body{align-self:center}
-.exp-tag{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:16px}
-.exp-body h3{margin-bottom:14px}
-.exp-body p{color:var(--tinta-2);margin-bottom:24px;max-width:52ch}
+.exp-tag{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:16px}
+.exp-body h3{margin-bottom:16px}
+.exp-body p{color:var(--cinza);margin-bottom:26px;max-width:48ch}
+.exp .ph{aspect-ratio:4/5}
+
 @media(min-width:900px){
-  .exp{grid-template-columns:1fr 1fr;align-items:center}
-  .exp:nth-of-type(even) .exp-media{order:2}
-  /* A primeira experiência tem a rota, então a coluna de texto fica bem mais
-     alta que a foto. Alinhar pelo topo e grudar a foto evita o buraco que
-     sobrava embaixo dela — e a foto acompanha a leitura das paradas. */
+  .exp{grid-template-columns:.95fr 1.05fr;align-items:center;gap:clamp(36px,4vw,72px)}
+  .exp .ph{aspect-ratio:4/5}
+  /* Sangra para fora do .wrap até a borda da janela. A distância até a borda
+     é o MAIOR entre o respiro lateral da seção e a sobra da centralização —
+     não a soma dos dois. Somar jogava a foto 60px para fora em telas de 1440
+     e criava barra de rolagem horizontal. */
+  .exp .exp-media{margin-left:var(--sangra)}
+  .exp:nth-of-type(even) .exp-media{order:2;margin-left:0;margin-right:var(--sangra)}
   .exp:first-of-type{align-items:start}
-  .exp:first-of-type .exp-media{position:sticky;top:90px}
+  .exp:first-of-type .exp-media{position:sticky;top:86px}
 }
 
-/* o card do baile funk vira noite, porque ele é de noite */
-.exp.noite{
-  background:var(--breu);color:var(--cal);border-top:0;
-  padding:clamp(30px,4vw,48px);border-radius:4px;margin:clamp(36px,5vw,56px) 0;
-}
-.exp.noite .exp-body p{color:#C8BCB0}
-.exp.noite .exp-tag .tag{color:var(--ocre)}
-
-/* ── a rota: a assinatura da página ────────────────────────────
-   O tour é uma sequência de verdade, com paradas reais e nesta
-   ordem — por isso ele pode ser numerado sem virar enfeite. O
-   trilho responde à pergunta que trava reserva ("o que eu vou
-   fazer?") e mostra o que é caminhada e o que é carona: traço
-   cheio é a pé, traço picotado é de moto-táxi. */
-.rota{list-style:none;margin:0 0 26px;padding:0}
-.rota li{position:relative;padding:0 0 22px 30px;display:grid;gap:3px}
+/* ── a rota ────────────────────────────────────────────────────
+   O tour é uma sequência real, com paradas reais e nesta ordem —
+   por isso ela pode ser listada sem virar enfeite. O traço cheio é
+   o que se faz a pé; o picotado é o trecho de moto-táxi. */
+.rota{list-style:none;margin:0 0 22px;padding:0}
+.rota li{position:relative;padding:0 0 20px 28px;display:grid;gap:2px}
 .rota li:last-child{padding-bottom:0}
-.rota li::before{                         /* o ponto da parada */
-  content:'';position:absolute;left:0;top:6px;width:11px;height:11px;
-  border-radius:50%;background:var(--cal);border:2px solid var(--caixa);
+.rota li::before{
+  content:'';position:absolute;left:0;top:6px;width:9px;height:9px;
+  background:var(--asfalto);border:2px solid var(--sodio);
 }
-.rota li::after{                          /* o trecho até a próxima */
-  content:'';position:absolute;left:5px;top:19px;bottom:-1px;
-  border-left:2px solid var(--caixa);
+.rota li::after{
+  content:'';position:absolute;left:4px;top:17px;bottom:-1px;border-left:2px solid var(--sodio);
 }
 .rota li:last-child::after{display:none}
 .rota li.moto::after{border-left-style:dashed}
-.rota li.moto::before{background:var(--caixa)}
-.rota .parada{font-variation-settings:'wght' 600;font-size:16.5px;line-height:1.3}
-/* Caixa alta aqui seria erro: são frases, não etiquetas. Uma placa de rua
-   pode ser caixa alta; "onde a gente para só pra olhar" não. */
-.rota .como{font-family:var(--mono);font-size:12.5px;letter-spacing:.01em;color:var(--tinta-2)}
-/* 12.5px é o piso: abaixo disso o iOS passa a dar zoom sozinho no toque e
-   o texto vira grão na tela do celular. */
+.rota li.moto::before{background:var(--sodio)}
+.rota .parada{
+  font-family:var(--display);font-variation-settings:'wdth' 105,'wght' 700;
+  font-size:16px;text-transform:uppercase;letter-spacing:.01em;
+}
+.rota .como{font-family:var(--mono);font-size:12.5px;color:var(--cinza);line-height:1.4}
 .rota-legenda{
-  display:flex;flex-wrap:wrap;gap:8px 20px;margin:-8px 0 26px 30px;
-  font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--tinta-2);
+  display:flex;flex-wrap:wrap;gap:8px 18px;margin:-4px 0 26px 28px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--cinza);
 }
 .rota-legenda span{display:inline-flex;align-items:center;gap:7px}
-.rota-legenda i{display:block;width:20px;border-top:2px solid var(--caixa)}
+.rota-legenda i{display:block;width:18px;border-top:2px solid var(--sodio)}
 .rota-legenda i.tracejado{border-top-style:dashed}
 
 /* ── fotos ─────────────────────────────────────────────────── */
-.ph{position:relative;width:100%;overflow:hidden;background:var(--cal-2);display:block}
+.ph{position:relative;width:100%;overflow:hidden;background:var(--asfalto-2);display:block}
 .ph img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  object-position:center 62%;
-  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+  width:100%;height:100%;object-fit:cover;object-position:center 62%;display:block;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1);
 }
-.ph:hover img{transform:scale(1.035)}
+.ph:hover img{transform:scale(1.04)}
 @media(prefers-reduced-motion:reduce){.ph:hover img{transform:none}}
-.exp .ph{aspect-ratio:4/5}
-@media(min-width:900px){.exp .ph{aspect-ratio:1/1}}
 
 /* ── carrossel ─────────────────────────────────────────────── */
 .carousel{position:relative;width:100%;height:100%}
@@ -337,130 +345,145 @@ section,footer{scroll-margin-top:74px}
 }
 .carousel-track::-webkit-scrollbar{display:none}
 .carousel-slide{flex:0 0 100%;height:100%;scroll-snap-align:start}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block}
 .car-btn{
   position:absolute;top:50%;transform:translateY(-50%);
-  width:44px;height:44px;border-radius:50%;
-  background:rgba(239,229,214,.9);border:0;color:var(--breu);
+  width:44px;height:44px;border-radius:0;
+  background:rgba(10,10,12,.66);backdrop-filter:blur(6px);
+  border:1px solid var(--linha);color:var(--cal);
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:background .2s;z-index:2;padding:0;
+  cursor:pointer;transition:background .2s,border-color .2s;z-index:2;padding:0;
 }
 .car-btn svg{width:16px;height:16px}
-.car-btn:hover{background:var(--cal)}
-.car-prev{left:12px}
-.car-next{right:12px}
+.car-btn:hover{background:var(--sodio);border-color:var(--sodio);color:var(--asfalto)}
+.car-prev{left:10px}
+.car-next{right:10px}
 .car-dots{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:2px;z-index:2}
-/* O ponto continua pequeno, mas a área de toque não: o botão tem 28px e o
-   ponto é desenhado dentro dele. Alvo de 6px é impossível de acertar com o
-   polegar e reprova no mínimo de 24px da WCAG. */
-.car-dot{
-  width:28px;height:28px;border:0;background:none;cursor:pointer;padding:0;
-  display:grid;place-items:center;
-}
-.car-dot::before{
-  content:'';width:6px;height:6px;border-radius:50%;
-  background:rgba(239,229,214,.55);transition:background .2s,transform .2s;
-}
-.car-dot.active::before{background:var(--cal);transform:scale(1.5)}
+.car-dot{width:28px;height:28px;border:0;background:none;cursor:pointer;padding:0;display:grid;place-items:center}
+.car-dot::before{content:'';width:16px;height:3px;background:rgba(244,241,236,.4);transition:background .2s}
+.car-dot.active::before{background:var(--sodio)}
 .carousel.single .car-btn,.carousel.single .car-dots{display:none}
 
 /* ── os primos ─────────────────────────────────────────────── */
-.cousins{background:var(--cal-2)}
-.cousins-grid{display:grid;gap:clamp(30px,4.5vw,60px)}
+.cousins{background:var(--asfalto-2)}
+.cousins-grid{display:grid;gap:clamp(28px,4vw,56px)}
 .cousins .ph{aspect-ratio:4/5}
 .cousins-text h2{margin-bottom:22px}
-.cousins-text p{color:var(--tinta-2);margin-bottom:16px}
+.cousins-text p{color:var(--cinza);margin-bottom:16px}
 .nota{
-  border-left:3px solid var(--caixa);padding:2px 0 2px 18px;
-  color:var(--breu);font-size:16.5px;margin-top:24px;
+  border-left:3px solid var(--sodio);padding:2px 0 2px 16px;
+  color:var(--cal);font-size:16px;margin-top:24px;
 }
-.nota b{font-weight:600}
+.nota b{font-weight:700;color:var(--sodio)}
 @media(min-width:900px){.cousins-grid{grid-template-columns:.85fr 1.15fr;align-items:center}}
 
-/* ── galeria ───────────────────────────────────────────────── */
-.grid-gal{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+/* ── galeria ───────────────────────────────────────────────────
+   Grade colada, quase sem respiro entre as fotos: parece prova de
+   contato, não vitrine de produto. */
+.grid-gal{display:grid;gap:4px;grid-template-columns:repeat(2,1fr)}
 .grid-gal .ph{aspect-ratio:1/1}
 .grid-gal .ph:first-child{grid-column:span 2;aspect-ratio:16/10}
 @media(min-width:760px){
-  .grid-gal{grid-template-columns:repeat(4,1fr);gap:12px}
+  .grid-gal{grid-template-columns:repeat(4,1fr)}
   .grid-gal .ph:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:1/1}
   .grid-gal .ph:nth-child(8){grid-column:span 2;aspect-ratio:2/1}
 }
 
 /* ── o que está incluso ────────────────────────────────────── */
-.incluso{background:var(--cal-2)}
+.incluso{background:var(--asfalto-2)}
 .inc-list{list-style:none;display:grid;gap:0}
 .inc-list li{padding:26px 0;border-top:1px solid var(--linha);display:grid;gap:8px}
 .inc-list li:last-child{border-bottom:1px solid var(--linha)}
-.inc-list h3{font-size:clamp(19px,2vw,24px)}
-.inc-list p{color:var(--tinta-2);font-size:16.5px;max-width:56ch}
+.inc-list h3{font-size:clamp(19px,2vw,26px)}
+.inc-list p{color:var(--cinza);font-size:16px;max-width:52ch}
 @media(min-width:900px){
-  .inc-list{grid-template-columns:1fr 1fr;column-gap:64px}
+  .inc-list{grid-template-columns:1fr 1fr;column-gap:60px}
   .inc-list li:nth-last-child(2){border-bottom:1px solid var(--linha)}
 }
 
 /* ── perguntas ─────────────────────────────────────────────── */
-.faq-list{max-width:820px;border-top:1px solid var(--linha)}
+.faq-list{max-width:860px;border-top:1px solid var(--linha)}
 details{border-bottom:1px solid var(--linha)}
 summary{
-  list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;
-  font-family:var(--display);font-variation-settings:'wght' 600,'opsz' 20;
-  font-size:clamp(19px,2.2vw,24px);letter-spacing:-.02em;
+  list-style:none;cursor:pointer;padding:22px 46px 22px 0;position:relative;
+  font-family:var(--display);font-variation-settings:'wdth' 110,'wght' 800;
+  font-size:clamp(18px,2.2vw,26px);text-transform:uppercase;letter-spacing:-.01em;
 }
 summary::-webkit-details-marker{display:none}
-summary::after{
-  content:'';position:absolute;right:8px;top:50%;width:13px;height:2px;
-  background:var(--caixa);transform:translateY(-50%);
-}
-summary::before{
-  content:'';position:absolute;right:13.5px;top:50%;width:2px;height:13px;
-  background:var(--caixa);transform:translateY(-50%);transition:transform .22s,opacity .22s;
-}
+summary::after{content:'';position:absolute;right:8px;top:50%;width:14px;height:2px;background:var(--sodio);transform:translateY(-50%)}
+summary::before{content:'';position:absolute;right:14px;top:50%;width:2px;height:14px;background:var(--sodio);transform:translateY(-50%);transition:transform .22s,opacity .22s}
 details[open] summary::before{transform:translateY(-50%) rotate(90deg);opacity:0}
-details p{padding:0 0 24px;color:var(--tinta-2)}
+details p{padding:0 0 24px;color:var(--cinza)}
 
-/* ── rodapé ────────────────────────────────────────────────── */
-.foot{background:var(--breu);color:var(--cal);padding:var(--secao-forte) var(--pad) var(--secao);text-align:center}
-.foot h2{margin-bottom:28px}
-.foot .wrap{display:grid;justify-items:center}
-.foot p{margin-inline:auto}
-.socials{display:flex;justify-content:center;gap:12px;margin-top:26px}
-.socials a{
-  width:48px;height:48px;border-radius:50%;border:1px solid var(--linha-esc);
-  display:grid;place-items:center;transition:border-color .2s,color .2s,transform .2s;
+/* ── rodapé ────────────────────────────────────────────────────
+   O segundo e último corte do morro. Aqui a diagonal fecha o que o
+   hero abriu. */
+.foot{position:relative;background:var(--asfalto-2);padding:calc(var(--corte) + var(--secao)) var(--pad) var(--secao)}
+/* O segundo e último corte, paralelo ao do hero, com o mesmo fio laranja. */
+.foot::after{
+  content:'';position:absolute;left:0;right:0;top:3px;height:var(--corte);z-index:1;
+  background:var(--sodio);clip-path:polygon(0 0,100% 0,100% 100%);
 }
-.socials a:hover{border-color:var(--caixa);color:var(--caixa);transform:translateY(-3px)}
-.socials svg{width:20px;height:20px}
-.meet{margin-top:34px;max-width:none;font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:#B6A99C}
-.legal{margin-top:26px;padding-top:22px;border-top:1px solid var(--linha-esc);font-size:12.5px;color:#8E8177;max-width:52ch}
+.foot::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:var(--corte);z-index:2;
+  background:var(--asfalto);clip-path:polygon(0 0,100% 0,100% 100%);
+}
+.foot > .wrap{position:relative;z-index:3}
+.foot h2{text-align:center;margin-bottom:26px}
+.foot h2 em{font-style:normal;color:var(--sodio)}
+.foot-cta{display:flex;justify-content:center}
+.socials{display:flex;justify-content:center;gap:10px;margin-top:26px}
+.socials a{
+  width:48px;height:48px;border:1px solid var(--linha);
+  display:grid;place-items:center;transition:border-color .2s,color .2s,background .2s;
+}
+.socials a:hover{border-color:var(--sodio);background:var(--sodio);color:var(--asfalto)}
+.socials svg{width:19px;height:19px}
+.foot-links{
+  display:grid;gap:30px;margin-top:clamp(38px,5vw,58px);
+  padding-top:32px;border-top:1px solid var(--linha);
+}
+@media(min-width:700px){.foot-links{grid-template-columns:repeat(3,1fr);text-align:center}}
+.foot-col h4{
+  font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sodio);margin-bottom:14px;font-weight:700;
+}
+.foot-col ul{list-style:none;display:grid;gap:2px}
+/* 15px de texto dá 16px de alvo. Com padding o link vira uma área de 44px,
+   que é o mínimo para o polegar acertar sem errar de linha. */
+.foot-col a,.foot-col span{
+  color:var(--cinza);font-size:15px;transition:color .18s;
+  display:inline-flex;align-items:center;min-height:44px;
+}
+.foot-col a:hover{color:var(--cal)}
+.meet{margin-top:38px;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--cinza);max-width:none}
+.legal{
+  margin-top:26px;padding-top:22px;border-top:1px solid var(--linha);text-align:center;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#857E74;max-width:none;
+}
 
 /* ── barra fixa de contato ─────────────────────────────────── */
 .dock{
   position:fixed;z-index:55;left:var(--pad);right:var(--pad);bottom:14px;
-  display:flex;gap:9px;
-  transform:translateY(150%);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  display:flex;gap:8px;transform:translateY(160%);transition:transform .38s cubic-bezier(.2,.8,.2,1);
 }
 .dock.show{transform:none}
-.dock .btn{flex:1;justify-content:center;padding:14px 12px;font-size:14.5px;box-shadow:0 12px 30px -12px rgba(28,21,18,.7)}
-/* O respiro extra aqui existia só para a barra fixa não tapar o rodapé.
-   Agora ela some sozinha quando o rodapé aparece, então o espaço vazio
-   deixou de ter função. */
-@media(max-width:759px){.foot{padding-bottom:var(--secao)}}
+.dock .btn{flex:1;justify-content:center;padding:14px 10px;font-size:13px}
 @media(min-width:760px){
-  .dock{left:auto;right:24px;bottom:24px;flex-direction:column;align-items:flex-end}
+  .dock{left:auto;right:22px;bottom:22px;flex-direction:column;align-items:flex-end}
   .dock .btn{flex:none}
 }
 
 /* ── entrada ao rolar ──────────────────────────────────────────
-   Só liga com a classe .js, posta no <html> lá no <head>. Sem
-   JavaScript nada fica escondido — aparece direto, sem animação. */
-.js .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+   Só liga com a classe .js, posta no <html> no <head>. Sem
+   JavaScript nada some: aparece direto, sem animação. */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
 .js .grid-gal.rv{opacity:1;transform:none;transition:none}
 .js .grid-gal .ph{
-  opacity:0;transform:translateY(14px);
+  opacity:0;transform:translateY(12px);
   transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1);
-  transition-delay:calc(var(--i,0) * 40ms);
+  transition-delay:calc(var(--i,0) * 35ms);
 }
 .js .grid-gal.in .ph{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
@@ -523,11 +546,24 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" id="top">
+  <!-- A vista da Rocinha ocupa a tela inteira e o título vem por cima.
+       O véu escuro está só no terço de baixo, atrás do texto: no meio da
+       imagem, que é onde está a favela, não há véu nenhum. Escurecer o
+       quadro todo apagaria justamente o assunto.
+       O vídeo não tem o atributo autoplay de propósito — quem dá play é o
+       script, e só se a pessoa não pediu menos movimento no sistema. Sem
+       play fica o poster, então a tela nunca aparece vazia. -->
+  <div class="hero-media">
+    <video id="heroVideo" poster="fotos/01.webp" muted loop playsinline preload="metadata"
+           aria-label="Aerial view of Rocinha favela against the mountain, with the ocean in the distance">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-inner">
     <h1><span data-i="hero.a">The</span> <em data-i="hero.b">REAL</em> <span data-i="hero.c">Rocinha Experience</span></h1>
     <p class="deck" data-i="hero.sub">100% safe, private experiences by two local cousins — born and raised in Rio's largest favela.</p>
     <div class="hero-actions">
-      <a class="btn btn-azul" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
+      <a class="btn btn-laranja" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
         <span data-i="cta.ig">Message us on Instagram</span>
       </a>
@@ -535,19 +571,7 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
     </div>
     <p class="fala"><b data-i="hero.badge">English · Español · Português spoken</b></p>
   </div>
-
-  <!-- A vista da Rocinha, em faixa própria: sem véu escuro por cima e sem
-       texto disputando espaço com ela.
-       O vídeo não tem o atributo autoplay de propósito — quem dá play é o
-       script, e só quando a pessoa não pediu menos movimento no sistema.
-       Sem play, o poster (a foto) fica na tela, então a faixa nunca aparece
-       vazia: nem sem JavaScript, nem se o vídeo falhar. -->
-  <div class="hero-foto">
-    <video id="heroVideo" poster="fotos/01.webp" muted loop playsinline preload="metadata"
-           aria-label="Aerial view of Rocinha favela against the mountain, with the ocean in the distance">
-      <source src="hero.mp4" type="video/mp4">
-    </video>
-  </div>
+  <div class="corte" aria-hidden="true"></div>
 </section>
 
 <!-- ══════════ TRUST TICKER ══════════ -->
@@ -616,7 +640,7 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
           <span><i class="tracejado"></i><span data-i="rota.moto">By moto-taxi</span></span>
         </p>
 
-        <a class="btn btn-azul" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
+        <a class="btn btn-laranja" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
       </div>
     </article>
 
@@ -630,7 +654,7 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
         <div class="exp-tag"><span class="tag" data-i="e2.tag">After dark · All night with us</span></div>
         <h3 data-i="e2.title">Favela Party — Baile Funk</h3>
         <p data-i="e2.body">Experience Rio's real nightlife from the inside. We safely take you into an authentic baile funk in Rocinha or Vidigal — the party locals actually go to. Dance, feel the energy and live the culture with trusted local guides by your side all night.</p>
-        <a class="btn btn-azul" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
+        <a class="btn btn-laranja" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
       </div>
     </article>
 
@@ -644,7 +668,7 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
         <div class="exp-tag"><span class="tag" data-i="e3.tag">Best at sunset · About 3 hours</span></div>
         <h3 data-i="e3.title">Two Brothers (Dois Irmãos) Hike</h3>
         <p data-i="e3.body">Hike up the iconic Dois Irmãos mountain from Vidigal for the most breathtaking panoramic view in all of Rio — Ipanema, Leblon, the ocean and the favela below. Guided every step by a local cousin. Unforgettable at sunset.</p>
-        <a class="btn btn-azul" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
+        <a class="btn btn-laranja" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener" data-i="cta.book">Message us to book</a>
       </div>
     </article>
   </div>
@@ -790,11 +814,13 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="foot" id="contact">
   <div class="wrap">
-    <h2 data-i="ft.title">Come see<br>the real Rio</h2>
-    <a class="btn btn-cal" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-      <span data-i="ft.cta">Message us on Instagram @rocinhacousins</span>
-    </a>
+    <h2 data-i="ft.title">Come see<br>the <em>real</em> Rio</h2>
+    <div class="foot-cta">
+      <a class="btn btn-laranja" href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <span data-i="ft.cta">Message us on Instagram @rocinhacousins</span>
+      </a>
+    </div>
     <div class="socials">
       <a href="https://instagram.com/rocinhacousins" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
@@ -803,6 +829,35 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2z"/></svg>
       </a>
     </div>
+    <!-- Três colunas, mas todo link leva a um lugar que existe de verdade
+         nesta página. Rodapé cheio de "Política de Privacidade" e "Trocas e
+         Devoluções" que não existem é enfeite copiado de loja. -->
+    <nav class="foot-links" aria-label="Footer">
+      <div class="foot-col">
+        <h4 data-i="fl.tour">The tour</h4>
+        <ul>
+          <li><a href="#experiences" data-i="e1.title">Private Rocinha &amp; Vidigal Tour</a></li>
+          <li><a href="#experiences" data-i="e2.title">Favela Party — Baile Funk</a></li>
+          <li><a href="#experiences" data-i="e3.title">Two Brothers (Dois Irmãos) Hike</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i="fl.falar">Talk to us</h4>
+        <ul>
+          <li><a href="https://ig.me/m/rocinhacousins" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://wa.me/5521978791943" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#faq" data-i="faq.q2">How do I book?</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i="fl.saber">Good to know</h4>
+        <ul>
+          <li><a href="#cousins" data-i="nav.cz">The cousins</a></li>
+          <li><a href="#included" data-i="nav.inc">Included</a></li>
+          <li><a href="#faq" data-i="faq.q1">Is it safe?</a></li>
+        </ul>
+      </div>
+    </nav>
     <p class="meet" data-i="ft.meet">We meet at São Conrado metro station, Exit A · Rio de Janeiro</p>
     <p class="legal" data-i="ft.legal">Rocinha Cousins · Local guides born and raised in Rocinha · Proudly supporting Acorda Capoeira</p>
   </div>
@@ -810,7 +865,7 @@ details p{padding:0 0 24px;color:var(--tinta-2)}
 
 <!-- ══════════ STICKY CONTACT ══════════ -->
 <div class="dock" id="dock">
-  <a class="btn btn-azul" href="https://wa.me/5521978791943" target="_blank" rel="noopener">
+  <a class="btn btn-laranja" href="https://wa.me/5521978791943" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.4-.1-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2z"/></svg>
     <span data-i="dock.wa">WhatsApp</span>
   </a>
@@ -832,6 +887,7 @@ const T = {
     "exp.title":"Choose your experience",
     "exp.sub":"Small, private and led by us — never a van full of strangers. Tell us which one you want and we'll sort out the rest by message.",
     "rota.1":"São Conrado metro, Exit A","rota.1c":"We meet you here","rota.2":"Up the hill by moto-taxi","rota.2c":"Included · you ride, we ride beside you","rota.3":"Laboriaux viewpoint","rota.3c":"Sugarloaf, the ocean, the whole South Zone","rota.4":"Acorda Capoeira","rota.4c":"Live capoeira with Mestre Manel, teaching here for 20+ years","rota.5":"Rua 1","rota.5c":"The market street, on foot, at your pace","rota.6":"Vista Show rooftop","rota.6c":"Where we stop and just look","rota.pe":"On foot","rota.moto":"By moto-taxi","rota.titulo":"The route, stop by stop",
+    "fl.tour":"The tour","fl.falar":"Talk to us","fl.saber":"Good to know",
     "e1.tag":"Morning or afternoon · 2 to 3½ hours","e1.title":"Private Rocinha & Vidigal Tour",
     "e1.body":"A private, immersive walk through the largest favela in Latin America with two local cousins. Real culture, real people, real Rio.",
     "e2.tag":"After dark · All night with us","e2.title":"Favela Party — Baile Funk",
@@ -862,7 +918,7 @@ const T = {
     "faq.a3":"At São Conrado metro station, Exit A, right next to the Rocinha street market. It's easy to reach from Copacabana, Ipanema and Leblon, and we'll send you the exact pin when you book.",
     "faq.q4":"Which languages do you speak?",
     "faq.a4":"English, Spanish and Portuguese — we grew up switching between the three. This page is also translated into French so you can read it comfortably, but the tour itself is guided in English, Spanish or Portuguese. Write to us in whichever of those three works best for you.",
-    "ft.title":"Come see<br>the real Rio","ft.cta":"Message us on Instagram @rocinhacousins",
+    "ft.title":"Come see<br>the <em>real</em> Rio","ft.cta":"Message us on Instagram @rocinhacousins",
     "ft.meet":"We meet at São Conrado metro station, Exit A · Rio de Janeiro",
     "ft.legal":"Rocinha Cousins · Local guides born and raised in Rocinha · Proudly supporting Acorda Capoeira",
     "nav.exp":"Experiences","nav.cz":"The cousins","nav.inc":"Included","nav.faq":"FAQ",
@@ -880,6 +936,7 @@ const T = {
     "exp.title":"Elige tu experiencia",
     "exp.sub":"Grupos pequeños, privados y guiados por nosotros — nunca una van llena de desconocidos. Dinos cuál quieres y arreglamos el resto por mensaje.",
     "rota.1":"Metro São Conrado, Salida A","rota.1c":"Aquí te esperamos","rota.2":"Subida en moto-taxi","rota.2c":"Incluido · tú en una, nosotros al lado","rota.3":"Mirador de Laboriaux","rota.3c":"El Pan de Azúcar, el mar, toda la Zona Sur","rota.4":"Acorda Capoeira","rota.4c":"Capoeira en vivo con el Mestre Manel, más de 20 años enseñando aquí","rota.5":"Rua 1","rota.5c":"La calle del mercado, a pie y a tu ritmo","rota.6":"Terraza Vista Show","rota.6c":"Donde paramos solo para mirar","rota.pe":"A pie","rota.moto":"En moto-taxi","rota.titulo":"La ruta, parada por parada",
+    "fl.tour":"El tour","fl.falar":"Habla con nosotros","fl.saber":"Bueno saber",
     "e1.tag":"Mañana o tarde · 2 a 3½ horas","e1.title":"Tour privado por Rocinha y Vidigal",
     "e1.body":"Un recorrido privado a pie por la favela más grande de América Latina con dos primos locales. Cultura real, gente real, el Río real.",
     "e2.tag":"De noche · Toda la noche con nosotros","e2.title":"Fiesta en la favela — Baile Funk",
@@ -910,7 +967,7 @@ const T = {
     "faq.a3":"En la estación de metro São Conrado, Salida A, justo al lado de la feria de Rocinha. Se llega fácil desde Copacabana, Ipanema y Leblon, y te enviamos la ubicación exacta al reservar.",
     "faq.q4":"¿Qué idiomas hablan?",
     "faq.a4":"Inglés, español y portugués — crecimos cambiando entre los tres. Esta página también está traducida al francés para que la leas cómodo, pero el tour se guía en inglés, español o portugués. Escríbenos en el que prefieras de esos tres.",
-    "ft.title":"Ven a ver<br>el Río real","ft.cta":"Escríbenos por Instagram @rocinhacousins",
+    "ft.title":"Ven a ver<br>el Río <em>real</em>","ft.cta":"Escríbenos por Instagram @rocinhacousins",
     "ft.meet":"Nos encontramos en la estación de metro São Conrado, Salida A · Río de Janeiro",
     "ft.legal":"Rocinha Cousins · Guías locales nacidos y criados en Rocinha · Apoyando a Acorda Capoeira",
     "nav.exp":"Experiencias","nav.cz":"Los primos","nav.inc":"Incluido","nav.faq":"FAQ",
@@ -928,6 +985,7 @@ const T = {
     "exp.title":"Choisis ton expérience",
     "exp.sub":"En petit comité, en privé et avec nous — jamais un van rempli d'inconnus. Dis-nous laquelle t'intéresse et on règle le reste par message.",
     "rota.1":"Métro São Conrado, Sortie A","rota.1c":"On t’attend ici","rota.2":"Montée en moto-taxi","rota.2c":"Compris · toi sur une, nous à côté","rota.3":"Belvédère de Laboriaux","rota.3c":"Le Pain de Sucre, l’océan, toute la Zone Sud","rota.4":"Acorda Capoeira","rota.4c":"Capoeira en direct avec Mestre Manel, plus de 20 ans à enseigner ici","rota.5":"Rua 1","rota.5c":"La rue du marché, à pied et à ton rythme","rota.6":"Toit-terrasse Vista Show","rota.6c":"Là où on s’arrête juste pour regarder","rota.pe":"À pied","rota.moto":"En moto-taxi","rota.titulo":"L’itinéraire, arrêt par arrêt",
+    "fl.tour":"Le tour","fl.falar":"Écris-nous","fl.saber":"Bon à savoir",
     "e1.tag":"Matin ou après-midi · 2 à 3½ heures","e1.title":"Visite privée de Rocinha et Vidigal",
     "e1.body":"Une balade privée et immersive dans la plus grande favela d'Amérique latine avec deux cousins du quartier. Culture réelle, gens réels, le vrai Rio.",
     "e2.tag":"À la nuit tombée · Toute la nuit avec nous","e2.title":"Fête en favela — Baile Funk",
@@ -958,7 +1016,7 @@ const T = {
     "faq.a3":"À la station de métro São Conrado, Sortie A, juste à côté du marché de rue de Rocinha. C'est facile d'accès depuis Copacabana, Ipanema et Leblon, et on t'envoie le point exact à la réservation.",
     "faq.q4":"Quelles langues parlez-vous ?",
     "faq.a4":"L'anglais, l'espagnol et le portugais. Cette page est traduite en français pour que tu puisses tout lire tranquillement, mais la visite elle-même se fait en anglais, en espagnol ou en portugais — on ne parle pas encore français. Écris-nous en anglais ou en espagnol et tout se passera bien.",
-    "ft.title":"Viens voir<br>le vrai Rio","ft.cta":"Écris-nous sur Instagram @rocinhacousins",
+    "ft.title":"Viens voir<br>le <em>vrai</em> Rio","ft.cta":"Écris-nous sur Instagram @rocinhacousins",
     "ft.meet":"Rendez-vous à la station de métro São Conrado, Sortie A · Rio de Janeiro",
     "ft.legal":"Rocinha Cousins · Guides locaux nés et grandis à Rocinha · Fiers de soutenir Acorda Capoeira",
     "nav.exp":"Expériences","nav.cz":"Les cousins","nav.inc":"Inclus","nav.faq":"FAQ",
@@ -976,6 +1034,7 @@ const T = {
     "exp.title":"Escolha sua experiência",
     "exp.sub":"Pequeno, privado e guiado por nós — nunca uma van cheia de desconhecidos. Diz qual você quer e a gente acerta o resto na conversa.",
     "rota.1":"Metrô São Conrado, Saída A","rota.1c":"A gente te encontra aqui","rota.2":"Subida de moto-táxi","rota.2c":"Incluso · você numa, a gente do lado","rota.3":"Mirante do Laboriaux","rota.3c":"Pão de Açúcar, o mar, a Zona Sul inteira","rota.4":"Acorda Capoeira","rota.4c":"Capoeira ao vivo com o Mestre Manel, mais de 20 anos ensinando aqui","rota.5":"Rua 1","rota.5c":"A rua do comércio, a pé e no seu ritmo","rota.6":"Laje Vista Show","rota.6c":"Onde a gente para só pra olhar","rota.pe":"A pé","rota.moto":"De moto-táxi","rota.titulo":"O caminho, parada por parada",
+    "fl.tour":"O tour","fl.falar":"Fala com a gente","fl.saber":"Bom saber",
     "e1.tag":"Manhã ou tarde · 2 a 3½ horas","e1.title":"Tour privado Rocinha e Vidigal",
     "e1.body":"Um passeio privado e imersivo pela maior favela da América Latina com dois primos daqui. Cultura de verdade, gente de verdade, o Rio de verdade.",
     "e2.tag":"À noite · A noite toda com a gente","e2.title":"Festa na favela — Baile Funk",
@@ -1006,7 +1065,7 @@ const T = {
     "faq.a3":"Na estação de metrô São Conrado, Saída A, do lado da feira da Rocinha. É fácil chegar de Copacabana, Ipanema e Leblon, e a gente manda a localização exata quando você reservar.",
     "faq.q4":"Que idiomas vocês falam?",
     "faq.a4":"Inglês, espanhol e português — crescemos alternando entre os três. A página também está traduzida em francês pra facilitar a leitura, mas o tour em si é guiado em inglês, espanhol ou português.",
-    "ft.title":"Vem ver<br>o Rio de verdade","ft.cta":"Chama a gente no Instagram @rocinhacousins",
+    "ft.title":"Vem ver<br>o Rio <em>de verdade</em>","ft.cta":"Chama a gente no Instagram @rocinhacousins",
     "ft.meet":"Encontro na estação de metrô São Conrado, Saída A · Rio de Janeiro",
     "ft.legal":"Rocinha Cousins · Guias locais nascidos e criados na Rocinha · Apoiando o Acorda Capoeira",
     "nav.exp":"Experiências","nav.cz":"Os primos","nav.inc":"Incluído","nav.faq":"Dúvidas",
