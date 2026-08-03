@@ -329,6 +329,15 @@ section,footer{scroll-margin-top:70px}
 .rota li:last-child::after{display:none}
 .rota li.moto::after{border-left-style:dashed}
 .rota li.moto::before{background:var(--sodio)}
+/* O item de fecho não é uma parada: é o sinal de que a lista continua.
+   Ganha um "+" no lugar do quadrado e não puxa traço para baixo. */
+.rota li.mais{padding-bottom:0}
+.rota li.mais::before{
+  content:'+';border:0;background:none;color:var(--sodio);
+  width:auto;height:auto;left:-2px;top:-4px;
+  font-family:var(--mono);font-size:19px;line-height:1;font-weight:700;
+}
+.rota li.mais .parada{color:var(--cinza)}
 .rota .parada{
   font-family:var(--display);font-variation-settings:'wdth' 105,'wght' 700;
   font-size:16px;text-transform:uppercase;letter-spacing:.01em;
@@ -638,6 +647,10 @@ details p{padding:0 0 24px;color:var(--cinza)}
             <span class="como" data-i="rota.3c">Sugarloaf, the ocean, the whole South Zone</span>
           </li>
           <li>
+            <span class="parada" data-i="rota.7">Rocinha's football pitch</span>
+            <span class="como" data-i="rota.7c">Three minutes downhill — jump into the game if you want</span>
+          </li>
+          <li>
             <span class="parada" data-i="rota.4">Acorda Capoeira</span>
             <span class="como" data-i="rota.4c">Live capoeira with Mestre Manel, teaching here for 20+ years</span>
           </li>
@@ -648,6 +661,12 @@ details p{padding:0 0 24px;color:var(--cinza)}
           <li>
             <span class="parada" data-i="rota.6">Vista Show rooftop</span>
             <span class="como" data-i="rota.6c">Where we stop and just look</span>
+          </li>
+          <!-- Fecho aberto: o roteiro real muda conforme o dia, e a lista não
+               tem como ser exaustiva. O marcador vira um "+" e o traço some,
+               porque aqui a sequência não continua — ela apenas não termina. -->
+          <li class="mais">
+            <span class="parada" data-i="rota.mais">And plenty more, depending on the day</span>
           </li>
         </ol>
         <p class="rota-legenda">
@@ -901,6 +920,7 @@ const T = {
     "trust.1":"Born & raised local guides","trust.2":"100% private & safe","trust.3":"No jeep safaris","trust.4":"Supports a local social project",
     "exp.title":"Choose your experience",
     "exp.sub":"Small, private and led by us — never a van full of strangers. Tell us which one you want and we'll sort out the rest by message.",
+    "rota.7":"Rocinha's football pitch","rota.7c":"Three minutes downhill — jump into the game if you want","rota.mais":"And plenty more, depending on the day",
     "rota.1":"São Conrado metro, Exit A","rota.1c":"We meet you here","rota.2":"Up the hill by moto-taxi","rota.2c":"Included · you ride, we ride beside you","rota.3":"Laboriaux viewpoint","rota.3c":"Sugarloaf, the ocean, the whole South Zone","rota.4":"Acorda Capoeira","rota.4c":"Live capoeira with Mestre Manel, teaching here for 20+ years","rota.5":"Rua 1","rota.5c":"The market street, on foot, at your pace","rota.6":"Vista Show rooftop","rota.6c":"Where we stop and just look","rota.pe":"On foot","rota.moto":"By moto-taxi","rota.titulo":"The route, stop by stop",
     "fl.tour":"The tour","fl.falar":"Talk to us","fl.saber":"Good to know",
     "e1.tag":"Morning or afternoon · 2 to 3½ hours","e1.title":"Private Rocinha & Vidigal Tour",
@@ -950,6 +970,7 @@ const T = {
     "trust.1":"Guías nacidos y criados aquí","trust.2":"100% privado y seguro","trust.3":"Nada de safaris en jeep","trust.4":"Apoya un proyecto social local",
     "exp.title":"Elige tu experiencia",
     "exp.sub":"Grupos pequeños, privados y guiados por nosotros — nunca una van llena de desconocidos. Dinos cuál quieres y arreglamos el resto por mensaje.",
+    "rota.7":"La cancha de Rocinha","rota.7c":"Tres minutos cuesta abajo — métete en el partido si te animas","rota.mais":"Y bastante más, según el día",
     "rota.1":"Metro São Conrado, Salida A","rota.1c":"Aquí te esperamos","rota.2":"Subida en moto-taxi","rota.2c":"Incluido · tú en una, nosotros al lado","rota.3":"Mirador de Laboriaux","rota.3c":"El Pan de Azúcar, el mar, toda la Zona Sur","rota.4":"Acorda Capoeira","rota.4c":"Capoeira en vivo con el Mestre Manel, más de 20 años enseñando aquí","rota.5":"Rua 1","rota.5c":"La calle del mercado, a pie y a tu ritmo","rota.6":"Terraza Vista Show","rota.6c":"Donde paramos solo para mirar","rota.pe":"A pie","rota.moto":"En moto-taxi","rota.titulo":"La ruta, parada por parada",
     "fl.tour":"El tour","fl.falar":"Habla con nosotros","fl.saber":"Bueno saber",
     "e1.tag":"Mañana o tarde · 2 a 3½ horas","e1.title":"Tour privado por Rocinha y Vidigal",
@@ -999,6 +1020,7 @@ const T = {
     "trust.1":"Guides nés et grandis ici","trust.2":"100% privé et sûr","trust.3":"Pas de safari en jeep","trust.4":"Soutient un projet social local",
     "exp.title":"Choisis ton expérience",
     "exp.sub":"En petit comité, en privé et avec nous — jamais un van rempli d'inconnus. Dis-nous laquelle t'intéresse et on règle le reste par message.",
+    "rota.7":"Le terrain de foot de Rocinha","rota.7c":"Trois minutes en descente — entre dans le match si tu veux","rota.mais":"Et bien plus, selon le jour",
     "rota.1":"Métro São Conrado, Sortie A","rota.1c":"On t’attend ici","rota.2":"Montée en moto-taxi","rota.2c":"Compris · toi sur une, nous à côté","rota.3":"Belvédère de Laboriaux","rota.3c":"Le Pain de Sucre, l’océan, toute la Zone Sud","rota.4":"Acorda Capoeira","rota.4c":"Capoeira en direct avec Mestre Manel, plus de 20 ans à enseigner ici","rota.5":"Rua 1","rota.5c":"La rue du marché, à pied et à ton rythme","rota.6":"Toit-terrasse Vista Show","rota.6c":"Là où on s’arrête juste pour regarder","rota.pe":"À pied","rota.moto":"En moto-taxi","rota.titulo":"L’itinéraire, arrêt par arrêt",
     "fl.tour":"Le tour","fl.falar":"Écris-nous","fl.saber":"Bon à savoir",
     "e1.tag":"Matin ou après-midi · 2 à 3½ heures","e1.title":"Visite privée de Rocinha et Vidigal",
@@ -1048,6 +1070,7 @@ const T = {
     "trust.1":"Guias nascidos e criados aqui","trust.2":"100% privado e seguro","trust.3":"Nada de safári de jipe","trust.4":"Apoia um projeto social local",
     "exp.title":"Escolha sua experiência",
     "exp.sub":"Pequeno, privado e guiado por nós — nunca uma van cheia de desconhecidos. Diz qual você quer e a gente acerta o resto na conversa.",
+    "rota.7":"O campo da Rocinha","rota.7c":"Três minutos descendo — entra na pelada se quiser","rota.mais":"E muito mais, dependendo do dia",
     "rota.1":"Metrô São Conrado, Saída A","rota.1c":"A gente te encontra aqui","rota.2":"Subida de moto-táxi","rota.2c":"Incluso · você numa, a gente do lado","rota.3":"Mirante do Laboriaux","rota.3c":"Pão de Açúcar, o mar, a Zona Sul inteira","rota.4":"Acorda Capoeira","rota.4c":"Capoeira ao vivo com o Mestre Manel, mais de 20 anos ensinando aqui","rota.5":"Rua 1","rota.5c":"A rua do comércio, a pé e no seu ritmo","rota.6":"Laje Vista Show","rota.6c":"Onde a gente para só pra olhar","rota.pe":"A pé","rota.moto":"De moto-táxi","rota.titulo":"O caminho, parada por parada",
     "fl.tour":"O tour","fl.falar":"Fala com a gente","fl.saber":"Bom saber",
     "e1.tag":"Manhã ou tarde · 2 a 3½ horas","e1.title":"Tour privado Rocinha e Vidigal",
