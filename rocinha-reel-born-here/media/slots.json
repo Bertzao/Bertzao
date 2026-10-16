@@ -1,0 +1,9 @@
+{
+  "_help": "focus = [x, y] crop anchor 0..1 (0.5,0.3 keeps faces in the upper-middle). in = start second inside a video clip.",
+  "cousins":  {"focus": [0.5, 0.3], "in": 0},
+  "moto":     {"focus": [0.5, 0.5], "in": 0},
+  "capoeira": {"focus": [0.5, 0.5], "in": 0},
+  "streets":  {"focus": [0.5, 0.5], "in": 0},
+  "rooftop":  {"focus": [0.5, 0.5], "in": 0},
+  "tour":     {"focus": [0.5, 0.5], "in": 0}
+}

@@ -1,0 +1,3 @@
+build/
+out/*no-audio.mp4
+__pycache__/
